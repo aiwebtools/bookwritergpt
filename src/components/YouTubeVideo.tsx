@@ -7,7 +7,7 @@ const YouTubeVideo: React.FC = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false); // Changed to false for unmuted by default
   const iframeRef = useRef<HTMLIFrameElement>(null);
   
   useEffect(() => {
@@ -69,7 +69,7 @@ const YouTubeVideo: React.FC = () => {
         const currentSrc = iframeRef.current.src;
         const newSrc = currentSrc.includes('autoplay=1') 
           ? currentSrc 
-          : currentSrc.replace('autoplay=0', 'autoplay=1');
+          : currentSrc + (currentSrc.includes('?') ? '&' : '?') + 'autoplay=1';
         
         iframeRef.current.src = newSrc;
         
@@ -114,7 +114,8 @@ const YouTubeVideo: React.FC = () => {
   };
 
   // Construct YouTube URL with all necessary parameters
-  const youtubeEmbedUrl = `https://www.youtube.com/embed/Pm9VN2zDDxU?autoplay=1&mute=${isMuted ? 1 : 0}&hd=1&vq=hd1080&enablejsapi=1&playsinline=1&rel=0&origin=${encodeURIComponent(window.location.origin)}`;
+  // Changed mute parameter to 0 (unmuted)
+  const youtubeEmbedUrl = `https://www.youtube.com/embed/Pm9VN2zDDxU?autoplay=1&mute=0&hd=1&vq=hd1080&enablejsapi=1&playsinline=1&rel=0&origin=${encodeURIComponent(window.location.origin)}`;
 
   return (
     <section className="py-12 relative overflow-hidden">
@@ -135,23 +136,26 @@ const YouTubeVideo: React.FC = () => {
             onLoad={() => setVideoLoaded(true)}
           ></iframe>
           
-          <div 
-            className="absolute inset-0 bg-slate-900/50 flex items-center justify-center group hover:bg-transparent transition-all duration-300 cursor-pointer z-10"
-            onClick={handlePlayClick}
-          >
-            <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 transform transition-transform duration-300 group-hover:scale-110">
-              <Play className="w-6 h-6 text-white fill-current transform translate-x-0.5" />
-            </div>
-            
-            {isMuted && (
-              <div 
-                className="absolute bottom-4 right-4 bg-primary rounded-full p-2 cursor-pointer shadow-lg"
-                onClick={handleUnmuteClick}
-              >
-                <Volume2 className="w-5 h-5 text-white" />
+          {/* Play button overlay - only show if video isn't playing */}
+          {!isPlaying && (
+            <div 
+              className="absolute inset-0 bg-slate-900/50 flex items-center justify-center group hover:bg-transparent transition-all duration-300 cursor-pointer z-10"
+              onClick={handlePlayClick}
+            >
+              <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 transform transition-transform duration-300 group-hover:scale-110">
+                <Play className="w-6 h-6 text-white fill-current transform translate-x-0.5" />
               </div>
-            )}
-          </div>
+              
+              {isMuted && (
+                <div 
+                  className="absolute bottom-4 right-4 bg-primary rounded-full p-2 cursor-pointer shadow-lg"
+                  onClick={handleUnmuteClick}
+                >
+                  <Volume2 className="w-5 h-5 text-white" />
+                </div>
+              )}
+            </div>
+          )}
         </div>
         
         <div className="mt-6 text-center">
