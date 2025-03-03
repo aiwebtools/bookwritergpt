@@ -150,5 +150,25 @@ export const versions: Version[] = [
       "2024 version"
     ],
     url: "https://chatgpt.com/g/g-I9Dcfoe4m-book-writer-gpt-for-long-chapter-books-v7"
+  },
+  {
+    name: "Movie Script",
+    title: "Movie Script Writer",
+    description: "Creates full industry professional movie scripts with proper formatting and structure.",
+    color: "bg-red-800/30 border-red-700/50",
+    textColor: "text-slate-200",
+    descriptionColor: "text-slate-300",
+    accentColor: "text-red-400",
+    buttonColor: "bg-red-600 hover:bg-red-700",
+    rating: 4.9,
+    features: [
+      "Industry standard formatting",
+      "Professional screenplay structure",
+      "Character development",
+      "Scene descriptions",
+      "Dialogue writing",
+      "Full-length feature scripts"
+    ],
+    url: "https://moviescriptwritergpt.lovable.app/"
   }
 ];
