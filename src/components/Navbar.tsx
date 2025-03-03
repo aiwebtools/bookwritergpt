@@ -42,13 +42,13 @@ const Navbar = () => {
               className="flex items-center space-x-2 text-xl font-medium group"
             >
               <BookOpen className="w-6 h-6 text-primary group-hover:text-primary/80 transition-colors" />
-              <span className="animate-fade-in bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Book Writer GPT</span>
+              <span className="animate-fade-in bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent font-bold tracking-tight">Book Writer GPT</span>
             </a>
             <a
               href="https://www.aiwebtools.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-muted-foreground hover:text-primary transition-colors ml-8"
+              className="text-xs text-muted-foreground hover:text-primary transition-colors ml-8 font-medium"
             >
               Presented By AiWebTools.Ai
             </a>
@@ -60,13 +60,13 @@ const Navbar = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                className="text-sm font-semibold tracking-wide text-foreground/90 hover:text-primary transition-colors relative px-1 py-1 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
               >
                 {link.label}
               </a>
             ))}
             <Button 
-              className="btn-primary glow-on-hover"
+              className="btn-primary glow-on-hover font-semibold tracking-wide"
               onClick={() => document.getElementById('versions')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Get Started
@@ -102,14 +102,14 @@ const Navbar = () => {
             <a
               key={link.label}
               href={link.href}
-              className="py-2 text-base font-medium hover:text-primary transition-colors"
+              className="py-2 text-base font-semibold tracking-wide hover:text-primary transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.label}
             </a>
           ))}
           <Button 
-            className="btn-primary w-full mt-4 glow-on-hover"
+            className="btn-primary w-full mt-4 glow-on-hover font-semibold tracking-wide"
             onClick={() => {
               document.getElementById('versions')?.scrollIntoView({ behavior: 'smooth' });
               setIsMobileMenuOpen(false);
