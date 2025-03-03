@@ -32,7 +32,7 @@ const Footer = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-lg font-semibold mb-4">Versions</h3>
+              <h3 className="text-lg font-semibold mb-4">Select Your Version of Book Writer GPT</h3>
               <ul className="space-y-3">
                 {versions.slice(0, 7).map((version, index) => (
                   <li key={index}>
