@@ -22,9 +22,7 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { label: "Features", href: "#features" },
     { label: "Select Your Version of Book Writer GPT", href: "#versions" },
-    { label: "Examples", href: "#examples" },
   ];
 
   return (
