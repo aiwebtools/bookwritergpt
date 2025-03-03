@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -14,30 +13,6 @@ const Index = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    // Add Facebook browser detection and apply fixes
-    const isFacebookBrowser = () => {
-      const userAgent = navigator.userAgent || navigator.vendor;
-      return (
-        userAgent.indexOf("FBAN") > -1 ||
-        userAgent.indexOf("FBAV") > -1 ||
-        userAgent.indexOf("Instagram") > -1
-      );
-    };
-    
-    if (isFacebookBrowser() && document.body) {
-      document.body.classList.add("fb-webview-fix");
-      
-      // Fix for fixed position elements in Facebook browser
-      document.querySelectorAll(".fixed").forEach((el) => {
-        el.classList.add("fixed-fb");
-      });
-      
-      // Fix for sticky position elements in Facebook browser
-      document.querySelectorAll(".sticky").forEach((el) => {
-        el.classList.add("sticky-fb");
-      });
-    }
-    
     // Intersection Observer for scroll animations
     const observer = new IntersectionObserver(
       (entries) => {
@@ -78,7 +53,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col relative sparkle-bg fb-webview-fix" ref={containerRef}>
+    <div className="min-h-screen flex flex-col relative sparkle-bg" ref={containerRef}>
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-primary/5 to-transparent opacity-50"></div>
         <div className="absolute top-[20%] right-[10%] w-64 h-64 bg-primary/10 rounded-full blur-3xl floating"></div>
