@@ -15,11 +15,7 @@ const SecondYouTubeVideo: React.FC = () => {
         <div className="relative aspect-video w-full bg-slate-900/60 rounded-xl overflow-hidden shadow-xl border border-primary/20 hover:border-primary/40 transition-all duration-300 scroll-trigger">
           <iframe className="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/Pm9VN2zDDxU?autoplay=1&mute=0&hd=1&vq=hd1080" title="Book Writer GPT Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           
-          <div className="absolute inset-0 bg-slate-900/50 flex items-center justify-center group hover:bg-transparent transition-all duration-300">
-            <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 transform transition-transform duration-300 group-hover:scale-110">
-              <Play className="w-6 h-6 text-white fill-current transform translate-x-0.5" />
-            </div>
-          </div>
+          
         </div>
         
         <div className="mt-6 text-center">
