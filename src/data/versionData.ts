@@ -22,10 +22,10 @@ export const versions: Version[] = [
     descriptionColor: "text-slate-300",
     accentColor: "text-blue-400",
     buttonColor: "bg-blue-600 hover:bg-blue-700",
-    rating: 4.6, // Updated from 4.5 to 4.6
+    rating: 4.6,
     features: [
       "Page-by-page writing approach",
-      "Document compilation after each page",
+      "Automatic document compilation",
       "5000 words per page",
       "Perfect continuity between pages",
       "Detailed descriptions and dialogue"
@@ -43,7 +43,7 @@ export const versions: Version[] = [
     rating: 4.2,
     features: [
       "Shorter chapter format",
-      "Document compilation",
+      "Automatic document compilation",
       "Faster writing process",
       "Concise storytelling",
       "Great for shorter books"
@@ -115,7 +115,7 @@ export const versions: Version[] = [
     descriptionColor: "text-slate-300",
     accentColor: "text-indigo-400",
     buttonColor: "bg-indigo-600 hover:bg-indigo-700",
-    rating: 4.2, // Updated from 3.9 to 4.2
+    rating: 4.2,
     features: [
       "Base original model",
       "Document compilation available on request",
@@ -134,10 +134,10 @@ export const versions: Version[] = [
     descriptionColor: "text-slate-300",
     accentColor: "text-cyan-400",
     buttonColor: "bg-cyan-600 hover:bg-cyan-700",
-    rating: 4.8, // Updated from 4.7 to 4.8
+    rating: 4.8,
     features: [
       "Enhanced dialogue focus",
-      "Document compilation",
+      "Automatic document compilation",
       "Page-by-page approach",
       "Character-driven narratives",
       "2024 version"
