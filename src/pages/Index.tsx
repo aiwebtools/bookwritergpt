@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -66,8 +65,8 @@ const Index = () => {
       <main className="relative z-10">
         <Hero />
         <YouTubeVideo />
-        <ComparisonSection />
         <SecondYouTubeVideo />
+        <ComparisonSection />
         <Features />
         <Versions />
         <Examples />
