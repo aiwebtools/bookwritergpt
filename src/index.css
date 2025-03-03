@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -47,10 +48,16 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     @apply bg-background text-foreground;
+    width: 100%;
+    overflow-x: hidden;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
   }
 
   ::selection {
@@ -205,4 +212,25 @@
 
 .glow-on-hover:hover:after {
   opacity: 1;
+}
+
+/* Facebook browser fixes */
+.fb-webview-fix {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .sticky-fb {
+    position: relative !important;
+  }
+  
+  .fixed-fb {
+    position: absolute !important;
+  }
 }
