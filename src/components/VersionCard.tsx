@@ -57,7 +57,10 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) =>
         ))}
       </ul>
       
-      <Button className={cn("mt-auto w-full text-white", version.buttonColor)}>
+      <Button 
+        className={cn("mt-auto w-full text-white", version.buttonColor)}
+        onClick={() => window.open(version.url, '_blank', 'noopener,noreferrer')}
+      >
         Try {version.name}
       </Button>
     </div>

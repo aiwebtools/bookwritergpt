@@ -10,6 +10,7 @@ export interface Version {
   buttonColor: string;
   features: string[];
   rating: number; // Rating out of 5
+  url: string; // Added URL field
 }
 
 export const versions: Version[] = [
@@ -29,7 +30,8 @@ export const versions: Version[] = [
       "5000 words per page",
       "Perfect continuity between pages",
       "Detailed descriptions and dialogue"
-    ]
+    ],
+    url: "https://chatgpt.com/g/g-F09wUSmod-book-writer-gpt"
   },
   {
     name: "V2",
@@ -47,7 +49,8 @@ export const versions: Version[] = [
       "Faster writing process",
       "Concise storytelling",
       "Great for shorter books"
-    ]
+    ],
+    url: "https://chatgpt.com/g/g-aTxPjlaMZ-book-writer-gpt-v2-short-chapter-book-writer"
   },
   {
     name: "V3",
@@ -66,7 +69,8 @@ export const versions: Version[] = [
       "Faster writing speed",
       "Good for first drafts",
       "Original 2023 version"
-    ]
+    ],
+    url: "https://chatgpt.com/g/g-jfF1UfEjA-book-writer-gpt-v3-og-version"
   },
   {
     name: "V4",
@@ -85,7 +89,8 @@ export const versions: Version[] = [
       "Detailed chapter sections",
       "Original 2023 version",
       "Longer chapter format"
-    ]
+    ],
+    url: "https://chatgpt.com/g/g-1hAoZs9oI-book-writer-gpt-v4-og-segmented-chapter-version"
   },
   {
     name: "V5",
@@ -104,7 +109,8 @@ export const versions: Version[] = [
       "Original 2023 version",
       "Improved character development",
       "Better story pacing"
-    ]
+    ],
+    url: "https://chatgpt.com/g/g-eGZq44yph-book-writers-gpt"
   },
   {
     name: "V6",
@@ -123,7 +129,8 @@ export const versions: Version[] = [
       "Original 2023 version",
       "Standard chapter format",
       "Straightforward writing style"
-    ]
+    ],
+    url: "https://chatgpt.com/g/g-ACaXKEw78-book-writing-gpt-v6"
   },
   {
     name: "V7",
@@ -141,6 +148,7 @@ export const versions: Version[] = [
       "Page-by-page approach",
       "Character-driven narratives",
       "2024 version"
-    ]
+    ],
+    url: "https://chatgpt.com/g/g-I9Dcfoe4m-book-writer-gpt-for-long-chapter-books-v7"
   }
 ];
