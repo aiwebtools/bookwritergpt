@@ -32,7 +32,7 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300",
         isScrolled
-          ? "bg-background/80 backdrop-blur-md shadow-lg shadow-black/10"
+          ? "bg-background/80 backdrop-blur-md shadow-lg shadow-black/20" 
           : "bg-transparent"
       )}
     >
@@ -41,10 +41,10 @@ const Navbar = () => {
           <div className="flex flex-col">
             <a
               href="#"
-              className="flex items-center space-x-2 text-xl font-medium"
+              className="flex items-center space-x-2 text-xl font-medium group"
             >
-              <BookOpen className="w-6 h-6 text-primary" />
-              <span className="animate-fade-in bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent">Book Writer GPT</span>
+              <BookOpen className="w-6 h-6 text-primary group-hover:text-primary/80 transition-colors" />
+              <span className="animate-fade-in bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Book Writer GPT</span>
             </a>
             <a
               href="https://www.aiwebtools.ai"
@@ -72,7 +72,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 text-foreground rounded-full hover:bg-background/20 transition-colors"
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >

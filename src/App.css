@@ -19,3 +19,64 @@
     animation: logo-spin infinite 20s linear;
   }
 }
+
+/* Interactive elements */
+.glow-on-hover {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.glow-on-hover:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+.glow-on-hover:hover:after {
+  opacity: 1;
+}
+
+/* Animation for scroll triggers */
+.scroll-trigger {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-trigger.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Additional interactive element styling */
+.interactive {
+  transition: all 0.3s ease;
+}
+
+.interactive:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Animation for text fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}

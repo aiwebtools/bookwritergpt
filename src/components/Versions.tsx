@@ -76,9 +76,9 @@ const Versions = () => {
       ]
     },
     {
-      name: "V3-V6",
-      title: "Original Versions",
-      description: "The original faster chapter-by-chapter versions without document compilation.",
+      name: "V3",
+      title: "Original Fast",
+      description: "The original faster chapter-by-chapter version without document compilation.",
       color: "bg-amber-50 border-amber-200",
       accentColor: "text-amber-600",
       buttonColor: "bg-amber-600 hover:bg-amber-700",
@@ -86,23 +86,68 @@ const Versions = () => {
         "Chapter-by-chapter approach",
         "No document compilation",
         "Faster writing speed",
-        "Different variations available",
-        "Good for first drafts"
+        "Good for first drafts",
+        "Original 2023 version"
       ]
     },
     {
-      name: "V7",
-      title: "Long Chapters",
-      description: "Focuses on enhanced dialogue with document compilation and a page-by-page approach.",
+      name: "V4",
+      title: "Segmented Chapters",
+      description: "Breaks each chapter into two or more individualized parts for more detailed writing.",
       color: "bg-emerald-50 border-emerald-200",
       accentColor: "text-emerald-600",
       buttonColor: "bg-emerald-600 hover:bg-emerald-700",
       features: [
+        "Segmented chapter approach",
+        "No document compilation",
+        "Detailed chapter sections",
+        "Original 2023 version",
+        "Longer chapter format"
+      ]
+    },
+    {
+      name: "V5",
+      title: "Enhanced Chapters",
+      description: "Similar to V3 with slightly different directions for enhanced chapter writing.",
+      color: "bg-rose-50 border-rose-200",
+      accentColor: "text-rose-600",
+      buttonColor: "bg-rose-600 hover:bg-rose-700",
+      features: [
+        "Enhanced chapter writing",
+        "No document compilation",
+        "Original 2023 version",
+        "Improved character development",
+        "Better story pacing"
+      ]
+    },
+    {
+      name: "V6",
+      title: "Base Original",
+      description: "The base original model similar to V3 and V5 with different instructions.",
+      color: "bg-indigo-50 border-indigo-200",
+      accentColor: "text-indigo-600",
+      buttonColor: "bg-indigo-600 hover:bg-indigo-700",
+      features: [
+        "Base original model",
+        "No document compilation",
+        "Original 2023 version",
+        "Standard chapter format",
+        "Straightforward writing style"
+      ]
+    },
+    {
+      name: "V7",
+      title: "Dialogue Focus",
+      description: "Similar to V1 with a particular focus on dialogue enhancement and document compilation.",
+      color: "bg-cyan-50 border-cyan-200",
+      accentColor: "text-cyan-600",
+      buttonColor: "bg-cyan-600 hover:bg-cyan-700",
+      features: [
         "Enhanced dialogue focus",
         "Document compilation",
-        "Page-by-page writing",
-        "Long, detailed chapters",
-        "Character-driven narratives"
+        "Page-by-page approach",
+        "Character-driven narratives",
+        "2024 version"
       ]
     }
   ];
@@ -123,16 +168,16 @@ const Versions = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {versions.map((version, index) => (
             <div
               key={index}
               ref={el => cardRefs.current[index] = el}
               className={cn(
-                "rounded-xl border p-6 flex flex-col transition-all duration-500 scroll-trigger interactive",
+                "rounded-xl border p-6 flex flex-col transition-all duration-500 scroll-trigger interactive hover:shadow-lg hover:-translate-y-1",
                 version.color
               )}
-              style={{ transitionDelay: `${index * 150}ms` }}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="mb-4">
                 <Badge className={cn("font-medium", version.accentColor, "bg-white")}>{version.name}</Badge>
@@ -157,10 +202,10 @@ const Versions = () => {
         </div>
         
         <div className="mt-16 max-w-3xl mx-auto text-center">
-          <div className="p-6 bg-white rounded-xl border shadow-sm">
+          <div className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-sm">
             <h3 className="text-xl font-semibold mb-4">Not Sure Which Version to Choose?</h3>
             <p className="text-muted-foreground mb-6">
-              Each version of Book Writer GPT has its own strengths. V1 and V7 offer detailed page-by-page writing with document compilation, while V2-V6 provide faster chapter-based approaches with varying features.
+              Each version of Book Writer GPT has its own strengths. V1 and V7 offer detailed page-by-page writing with document compilation, while V2-V6 provide different approaches to chapter-based writing with varying features.
             </p>
             <Button className="btn-primary">View Detailed Comparison</Button>
           </div>
