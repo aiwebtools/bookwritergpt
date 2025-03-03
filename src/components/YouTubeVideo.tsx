@@ -1,6 +1,6 @@
 
 import React from "react";
-import { YoutubeIcon, Play } from "lucide-react";
+import { Play } from "lucide-react";
 
 const YouTubeVideo: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const YouTubeVideo: React.FC = () => {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         <div className="relative aspect-video w-full bg-slate-900/60 rounded-xl overflow-hidden shadow-xl border border-primary/20 hover:border-primary/40 transition-all duration-300 scroll-trigger">
-          <iframe className="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Book Writer GPT Introduction" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe className="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/Pm9VN2zDDxU" title="Book Writer GPT Introduction" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           
           <div className="absolute inset-0 bg-slate-900/50 flex items-center justify-center group hover:bg-transparent transition-all duration-300">
             <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 transform transition-transform duration-300 group-hover:scale-110">
