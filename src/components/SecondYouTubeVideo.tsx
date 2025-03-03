@@ -1,10 +1,7 @@
-
 import React from "react";
 import { Play } from "lucide-react";
-
 const SecondYouTubeVideo: React.FC = () => {
-  return (
-    <section className="py-12 relative overflow-hidden">
+  return <section className="py-12 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[20%] right-[10%] w-64 h-64 bg-primary/10 rounded-full blur-3xl floating"></div>
         <div className="absolute bottom-[30%] left-[15%] w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
@@ -12,20 +9,12 @@ const SecondYouTubeVideo: React.FC = () => {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         <div className="text-center mb-8 scroll-trigger">
-          <h2 className="text-3xl font-bold mb-4">Watch How Book Writer GPT Works</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            See Book Writer GPT in action as it transforms ideas into professionally structured content with engaging storytelling.
-          </p>
+          
+          <p className="text-muted-foreground max-w-2xl mx-auto">Join **thousands upon thousands** of storytellers who have unleashed the power of Book Writer GPT to craft captivating narratives, spark creativity, and transform their writing journey! 🚀📖</p>
         </div>
         
         <div className="relative aspect-video w-full bg-slate-900/60 rounded-xl overflow-hidden shadow-xl border border-primary/20 hover:border-primary/40 transition-all duration-300 scroll-trigger">
-          <iframe 
-            className="absolute inset-0 w-full h-full" 
-            src="https://www.youtube.com/embed/Pm9VN2zDDxU" 
-            title="Book Writer GPT Tutorial" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen
-          ></iframe>
+          <iframe className="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/Pm9VN2zDDxU" title="Book Writer GPT Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           
           <div className="absolute inset-0 bg-slate-900/50 flex items-center justify-center group hover:bg-transparent transition-all duration-300">
             <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 transform transition-transform duration-300 group-hover:scale-110">
@@ -40,8 +29,6 @@ const SecondYouTubeVideo: React.FC = () => {
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default SecondYouTubeVideo;
