@@ -22,7 +22,7 @@ export const versions: Version[] = [
     descriptionColor: "text-slate-300",
     accentColor: "text-blue-400",
     buttonColor: "bg-blue-600 hover:bg-blue-700",
-    rating: 4.5,
+    rating: 4.6, // Updated from 4.5 to 4.6
     features: [
       "Page-by-page writing approach",
       "Document compilation after each page",
@@ -112,7 +112,7 @@ export const versions: Version[] = [
     descriptionColor: "text-slate-300",
     accentColor: "text-indigo-400",
     buttonColor: "bg-indigo-600 hover:bg-indigo-700",
-    rating: 3.9,
+    rating: 4.2, // Updated from 3.9 to 4.2
     features: [
       "Base original model",
       "No document compilation",
@@ -130,7 +130,7 @@ export const versions: Version[] = [
     descriptionColor: "text-slate-300",
     accentColor: "text-cyan-400",
     buttonColor: "bg-cyan-600 hover:bg-cyan-700",
-    rating: 4.7,
+    rating: 4.8, // Updated from 4.7 to 4.8
     features: [
       "Enhanced dialogue focus",
       "Document compilation",
