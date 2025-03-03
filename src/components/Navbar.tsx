@@ -67,9 +67,9 @@ const Navbar = () => {
             ))}
             <Button 
               className="btn-primary glow-on-hover font-semibold tracking-wide"
-              onClick={() => document.getElementById('versions')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => window.open("https://kdp.amazon.com/", "_blank")}
             >
-              Get Started
+              Publish Your Book
             </Button>
           </nav>
 
@@ -111,11 +111,11 @@ const Navbar = () => {
           <Button 
             className="btn-primary w-full mt-4 glow-on-hover font-semibold tracking-wide"
             onClick={() => {
-              document.getElementById('versions')?.scrollIntoView({ behavior: 'smooth' });
+              window.open("https://kdp.amazon.com/", "_blank");
               setIsMobileMenuOpen(false);
             }}
           >
-            Get Started
+            Publish Your Book
           </Button>
         </div>
       </div>
