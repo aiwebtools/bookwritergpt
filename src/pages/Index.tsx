@@ -9,6 +9,7 @@ import Examples from "@/components/Examples";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import ComparisonSection from "@/components/ComparisonSection";
+import SecondYouTubeVideo from "@/components/SecondYouTubeVideo";
 
 const Index = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -66,6 +67,7 @@ const Index = () => {
         <Hero />
         <YouTubeVideo />
         <ComparisonSection />
+        <SecondYouTubeVideo />
         <Features />
         <Versions />
         <Examples />
