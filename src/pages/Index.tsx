@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import YouTubeVideo from "@/components/YouTubeVideo";
 import Features from "@/components/Features";
 import Versions from "@/components/Versions";
 import Examples from "@/components/Examples";
@@ -63,6 +64,7 @@ const Index = () => {
       <Navbar />
       <main className="relative z-10">
         <Hero />
+        <YouTubeVideo />
         <ComparisonSection />
         <Features />
         <Versions />
