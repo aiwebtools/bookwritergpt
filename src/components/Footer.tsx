@@ -1,6 +1,7 @@
 
 import React from "react";
 import { BookOpen, Mail, PhoneCall } from "lucide-react";
+import { versions } from "@/data/versionData";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -33,10 +34,18 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Versions</h3>
               <ul className="space-y-3">
-                <li><a href="#versions" className="text-muted-foreground hover:text-primary transition-colors">Version 1</a></li>
-                <li><a href="#versions" className="text-muted-foreground hover:text-primary transition-colors">Version 2</a></li>
-                <li><a href="#versions" className="text-muted-foreground hover:text-primary transition-colors">Versions 3-6</a></li>
-                <li><a href="#versions" className="text-muted-foreground hover:text-primary transition-colors">Version 7</a></li>
+                {versions.slice(0, 4).map((version, index) => (
+                  <li key={index}>
+                    <a 
+                      href={version.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {version.name} - {version.title}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
             
