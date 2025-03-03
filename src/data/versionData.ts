@@ -9,6 +9,7 @@ export interface Version {
   accentColor: string;
   buttonColor: string;
   features: string[];
+  rating: number; // Rating out of 5
 }
 
 export const versions: Version[] = [
@@ -21,6 +22,7 @@ export const versions: Version[] = [
     descriptionColor: "text-slate-300",
     accentColor: "text-blue-400",
     buttonColor: "bg-blue-600 hover:bg-blue-700",
+    rating: 4.5,
     features: [
       "Page-by-page writing approach",
       "Document compilation after each page",
@@ -38,6 +40,7 @@ export const versions: Version[] = [
     descriptionColor: "text-slate-300",
     accentColor: "text-purple-400",
     buttonColor: "bg-purple-600 hover:bg-purple-700",
+    rating: 4.2,
     features: [
       "Shorter chapter format",
       "Document compilation",
@@ -55,6 +58,7 @@ export const versions: Version[] = [
     descriptionColor: "text-slate-300",
     accentColor: "text-amber-400",
     buttonColor: "bg-amber-600 hover:bg-amber-700",
+    rating: 4.0,
     features: [
       "Chapter-by-chapter approach",
       "No document compilation",
@@ -72,6 +76,7 @@ export const versions: Version[] = [
     descriptionColor: "text-slate-300",
     accentColor: "text-emerald-400",
     buttonColor: "bg-emerald-600 hover:bg-emerald-700",
+    rating: 4.3,
     features: [
       "Segmented chapter approach",
       "No document compilation",
@@ -89,6 +94,7 @@ export const versions: Version[] = [
     descriptionColor: "text-slate-300",
     accentColor: "text-rose-400",
     buttonColor: "bg-rose-600 hover:bg-rose-700",
+    rating: 4.1,
     features: [
       "Enhanced chapter writing",
       "No document compilation",
@@ -106,6 +112,7 @@ export const versions: Version[] = [
     descriptionColor: "text-slate-300",
     accentColor: "text-indigo-400",
     buttonColor: "bg-indigo-600 hover:bg-indigo-700",
+    rating: 3.9,
     features: [
       "Base original model",
       "No document compilation",
@@ -123,6 +130,7 @@ export const versions: Version[] = [
     descriptionColor: "text-slate-300",
     accentColor: "text-cyan-400",
     buttonColor: "bg-cyan-600 hover:bg-cyan-700",
+    rating: 4.7,
     features: [
       "Enhanced dialogue focus",
       "Document compilation",

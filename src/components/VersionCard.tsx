@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Badge } from "@/components/ui/badge";
-import { Check } from "lucide-react";
+import { Check, Star, StarHalf } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Version } from "@/data/versionData";
@@ -11,6 +11,25 @@ interface VersionCardProps {
   index: number;
   cardRef: (el: HTMLDivElement | null) => void;
 }
+
+const StarRating: React.FC<{ rating: number; className?: string }> = ({ rating, className }) => {
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 !== 0;
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+  
+  return (
+    <div className={cn("flex items-center", className)}>
+      {[...Array(fullStars)].map((_, i) => (
+        <Star key={`full-${i}`} className="w-4 h-4 fill-current text-amber-400" />
+      ))}
+      {hasHalfStar && <StarHalf className="w-4 h-4 fill-current text-amber-400" />}
+      {[...Array(emptyStars)].map((_, i) => (
+        <Star key={`empty-${i}`} className="w-4 h-4 text-gray-400" />
+      ))}
+      <span className="ml-1 text-sm text-amber-400 font-medium">{rating.toFixed(1)}</span>
+    </div>
+  );
+};
 
 const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) => {
   return (
@@ -22,8 +41,9 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) =>
       )}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="mb-4">
+      <div className="flex justify-between items-center mb-4">
         <Badge className={cn("font-medium", version.accentColor, "bg-white/10")}>{version.name}</Badge>
+        <StarRating rating={version.rating} className={version.textColor} />
       </div>
       <h3 className={cn("text-xl font-semibold mb-2", version.textColor)}>{version.title}</h3>
       <p className={cn("mb-6 flex-grow", version.descriptionColor)}>{version.description}</p>
