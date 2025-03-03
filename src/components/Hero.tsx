@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from "react";
 import { BookOpen, Feather, PenTool, Speech } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -40,8 +41,8 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+        <div className="flex justify-center items-center">
+          <div className="max-w-xl text-center">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 animate-fade-down">
               <BookOpen className="w-4 h-4 mr-2" />
               <span>AI-Powered Book Writing</span>
@@ -59,7 +60,7 @@ const Hero = () => {
               Book Writer GPT assists you in creating professional, well-structured books with seamless page-to-page continuity, engaging dialogue, and captivating storytelling.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-up" style={{
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-up" style={{
             animationDelay: '0.3s'
           }}>
               <Button className="btn-primary w-full sm:w-auto" onClick={() => document.getElementById('versions')?.scrollIntoView({
@@ -74,24 +75,24 @@ const Hero = () => {
               </Button>
             </div>
             
-            <div className="mt-10 grid grid-cols-2 gap-6 animate-fade-up" style={{
+            <div className="mt-10 grid grid-cols-2 gap-6 animate-fade-up mx-auto max-w-md" style={{
             animationDelay: '0.4s'
           }}>
-              <div className="flex items-start space-x-3">
+              <div className="flex items-center space-x-3 justify-center">
                 <div className="bg-primary/10 p-2 rounded-full">
                   <PenTool className="w-5 h-5 text-primary" />
                 </div>
-                <div className="text-left">
+                <div>
                   <h3 className="font-medium">Professional Quality</h3>
                   <p className="text-sm text-muted-foreground">Award-winning author style</p>
                 </div>
               </div>
               
-              <div className="flex items-start space-x-3">
+              <div className="flex items-center space-x-3 justify-center">
                 <div className="bg-primary/10 p-2 rounded-full">
                   <Speech className="w-5 h-5 text-primary" />
                 </div>
-                <div className="text-left">
+                <div>
                   <h3 className="font-medium">Rich Dialogue</h3>
                   <p className="text-sm text-muted-foreground">Natural character interactions</p>
                 </div>
