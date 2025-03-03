@@ -10,9 +10,19 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
-              <BookOpen className="w-6 h-6 text-primary" />
-              <span className="text-xl font-medium">Book Writer GPT</span>
+            <div className="flex flex-col">
+              <div className="flex items-center space-x-2 mb-2">
+                <BookOpen className="w-6 h-6 text-primary" />
+                <span className="text-xl font-medium">Book Writer GPT</span>
+              </div>
+              <a
+                href="https://www.aiwebtools.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-muted-foreground hover:text-primary transition-colors mb-4 ml-8"
+              >
+                Presented By AiWebTools.Ai
+              </a>
             </div>
             <p className="text-muted-foreground mb-4">
               Transform your ideas into professionally written books with AI assistance.

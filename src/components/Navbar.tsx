@@ -38,13 +38,23 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <a
-            href="#"
-            className="flex items-center space-x-2 text-xl font-medium"
-          >
-            <BookOpen className="w-6 h-6 text-primary" />
-            <span className="animate-fade-in">Book Writer GPT</span>
-          </a>
+          <div className="flex flex-col">
+            <a
+              href="#"
+              className="flex items-center space-x-2 text-xl font-medium"
+            >
+              <BookOpen className="w-6 h-6 text-primary" />
+              <span className="animate-fade-in">Book Writer GPT</span>
+            </a>
+            <a
+              href="https://www.aiwebtools.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-muted-foreground hover:text-primary transition-colors ml-8"
+            >
+              Presented By AiWebTools.Ai
+            </a>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
