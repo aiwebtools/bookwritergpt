@@ -36,18 +36,6 @@ const Index = () => {
       document.querySelectorAll(".sticky").forEach((el) => {
         el.classList.add("sticky-fb");
       });
-      
-      // Fix for iframe in Facebook browser
-      document.querySelectorAll("iframe").forEach((iframe) => {
-        iframe.setAttribute("playsinline", "1");
-        iframe.setAttribute("webkit-playsinline", "1");
-        
-        // Force reload iframe for Facebook browser
-        const currentSrc = iframe.src;
-        setTimeout(() => {
-          iframe.src = currentSrc;
-        }, 1000);
-      });
     }
     
     // Intersection Observer for scroll animations

@@ -1,121 +1,8 @@
 
-import React, { useState, useEffect, useRef } from "react";
-import { Play, Volume2 } from "lucide-react";
-import { toast } from "@/components/ui/use-toast";
+import React from "react";
+import { Play } from "lucide-react";
 
 const YouTubeVideo: React.FC = () => {
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false); // Unmuted by default
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  
-  useEffect(() => {
-    // Check if user is on mobile device
-    const checkMobile = () => {
-      const userAgent = navigator.userAgent || navigator.vendor;
-      const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-      setIsMobile(mobileRegex.test(userAgent));
-    };
-    
-    checkMobile();
-    
-    // Initialize YouTube API
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    if (firstScriptTag.parentNode) {
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    }
-    
-    // Listen for messages from YouTube iframe
-    window.addEventListener('message', handleYouTubeMessage);
-    
-    return () => {
-      window.removeEventListener('message', handleYouTubeMessage);
-    };
-  }, []);
-  
-  const handleYouTubeMessage = (event: MessageEvent) => {
-    // Only process messages from YouTube
-    if (event.origin !== "https://www.youtube.com") return;
-    
-    try {
-      const data = JSON.parse(event.data);
-      if (data.event === "onStateChange") {
-        if (data.info === 1) { // playing
-          setIsPlaying(true);
-        } else if (data.info === 2) { // paused
-          setIsPlaying(false);
-        }
-      }
-    } catch (e) {
-      // Not a JSON message or not from YouTube player API
-    }
-  };
-
-  const handlePlayClick = () => {
-    try {
-      // Get iframe and attempt to control via postMessage
-      if (iframeRef.current) {
-        // For browsers that support iframe interaction
-        const message = JSON.stringify({
-          event: 'command',
-          func: 'playVideo'
-        });
-        iframeRef.current.contentWindow?.postMessage(message, '*');
-        
-        // Also try forcing reload with autoplay parameters
-        const currentSrc = iframeRef.current.src;
-        const newSrc = currentSrc.includes('autoplay=1') 
-          ? currentSrc 
-          : currentSrc + (currentSrc.includes('?') ? '&' : '?') + 'autoplay=1';
-        
-        iframeRef.current.src = newSrc;
-        
-        setVideoLoaded(true);
-        setIsPlaying(true);
-        
-        // Show a toast message for mobile users
-        if (isMobile) {
-          toast({
-            title: "Enabling video playback",
-            description: "If video doesn't play, try tapping directly on the video."
-          });
-        }
-      }
-    } catch (error) {
-      console.error("Error playing video:", error);
-    }
-  };
-  
-  const handleUnmuteClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent triggering play
-    
-    try {
-      if (iframeRef.current) {
-        // Try to unmute via postMessage
-        const message = JSON.stringify({
-          event: 'command',
-          func: 'unMute'
-        });
-        iframeRef.current.contentWindow?.postMessage(message, '*');
-        
-        // Also update the src with mute parameter changed
-        const currentSrc = iframeRef.current.src;
-        const newSrc = currentSrc.replace('mute=1', 'mute=0');
-        iframeRef.current.src = newSrc;
-        
-        setIsMuted(false);
-      }
-    } catch (error) {
-      console.error("Error unmuting video:", error);
-    }
-  };
-
-  // Construct YouTube URL with all necessary parameters
-  const youtubeEmbedUrl = `https://www.youtube.com/embed/Pm9VN2zDDxU?autoplay=1&mute=0&hd=1&vq=hd1080&enablejsapi=1&playsinline=1&rel=0&origin=${encodeURIComponent(window.location.origin)}`;
-
   return (
     <section className="py-12 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
@@ -125,36 +12,19 @@ const YouTubeVideo: React.FC = () => {
         
         <div className="relative aspect-video w-full bg-slate-900/60 rounded-xl overflow-hidden shadow-xl border border-primary/20 hover:border-primary/40 transition-all duration-300 scroll-trigger iframe-container">
           <iframe 
-            ref={iframeRef}
-            className="absolute inset-0 w-full h-full youtube-iframe" 
-            src={youtubeEmbedUrl}
+            className="absolute inset-0 w-full h-full" 
+            src="https://www.youtube.com/embed/Pm9VN2zDDxU?autoplay=1&mute=0&hd=1&vq=hd1080" 
             title="Book Writer GPT Tutorial" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowFullScreen
             loading="lazy"
-            onLoad={() => setVideoLoaded(true)}
           ></iframe>
           
-          {/* Play button overlay - only show if video isn't playing */}
-          {!isPlaying && (
-            <div 
-              className="absolute inset-0 bg-slate-900/50 flex items-center justify-center group hover:bg-transparent transition-all duration-300 cursor-pointer z-10"
-              onClick={handlePlayClick}
-            >
-              <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 transform transition-transform duration-300 group-hover:scale-110">
-                <Play className="w-6 h-6 text-white fill-current transform translate-x-0.5" />
-              </div>
-              
-              {isMuted && (
-                <div 
-                  className="absolute bottom-4 right-4 bg-primary rounded-full p-2 cursor-pointer shadow-lg"
-                  onClick={handleUnmuteClick}
-                >
-                  <Volume2 className="w-5 h-5 text-white" />
-                </div>
-              )}
+          <div className="absolute inset-0 bg-slate-900/50 flex items-center justify-center group hover:bg-transparent transition-all duration-300">
+            <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 transform transition-transform duration-300 group-hover:scale-110">
+              <Play className="w-6 h-6 text-white fill-current transform translate-x-0.5" />
             </div>
-          )}
+          </div>
         </div>
         
         <div className="mt-6 text-center">

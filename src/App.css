@@ -184,28 +184,8 @@
     overflow-x: hidden;
   }
   
-  .iframe-container {
-    position: relative !important;
-    overflow: hidden;
-  }
-  
   .iframe-container iframe {
     position: relative !important;
     width: 100% !important;
-    height: 100% !important;
-    min-height: 240px;
-  }
-  
-  /* Force hardware acceleration */
-  .youtube-iframe {
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    backface-visibility: hidden;
   }
 }
