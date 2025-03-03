@@ -77,14 +77,21 @@ const Footer = () => {
           </a>
           
           <div className="flex space-x-6">
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+            <a 
+              href="https://aiwebtools.ai/terms-of-services" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
               Terms
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+            <a 
+              href="https://openai.com/policies/privacy-policy/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
               Privacy
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-              Cookies
             </a>
           </div>
         </div>
