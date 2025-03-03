@@ -1,0 +1,77 @@
+
+import React from "react";
+import { BookOpen } from "lucide-react";
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-secondary/50 py-12 border-t">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="md:col-span-1">
+            <div className="flex items-center space-x-2 mb-6">
+              <BookOpen className="w-6 h-6 text-primary" />
+              <span className="text-xl font-medium">Book Writer GPT</span>
+            </div>
+            <p className="text-muted-foreground mb-4">
+              Transform your ideas into professionally written books with AI assistance.
+            </p>
+          </div>
+          
+          <div className="md:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Features</h3>
+              <ul className="space-y-3">
+                <li><a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Book Outlines</a></li>
+                <li><a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Page Writing</a></li>
+                <li><a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Document Compilation</a></li>
+                <li><a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Character Development</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Versions</h3>
+              <ul className="space-y-3">
+                <li><a href="#versions" className="text-muted-foreground hover:text-primary transition-colors">Version 1</a></li>
+                <li><a href="#versions" className="text-muted-foreground hover:text-primary transition-colors">Version 2</a></li>
+                <li><a href="#versions" className="text-muted-foreground hover:text-primary transition-colors">Versions 3-6</a></li>
+                <li><a href="#versions" className="text-muted-foreground hover:text-primary transition-colors">Version 7</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Resources</h3>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Help Center</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Writing Tips</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Tutorials</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Contact Support</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm text-muted-foreground mb-4 md:mb-0">
+            © {currentYear} Book Writer GPT. All rights reserved.
+          </p>
+          
+          <div className="flex space-x-6">
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              Terms
+            </a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              Privacy
+            </a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              Cookies
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
