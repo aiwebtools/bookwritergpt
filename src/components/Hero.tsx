@@ -57,8 +57,17 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
-              <Button className="btn-primary w-full sm:w-auto">Start Writing</Button>
-              <Button variant="outline" className="w-full sm:w-auto">
+              <Button 
+                className="btn-primary w-full sm:w-auto"
+                onClick={() => document.getElementById('versions')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Start Writing
+              </Button>
+              <Button 
+                variant="outline" 
+                className="w-full sm:w-auto"
+                onClick={() => document.getElementById('versions')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 Learn More
               </Button>
             </div>

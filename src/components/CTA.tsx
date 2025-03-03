@@ -60,11 +60,18 @@ const CTA = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-primary hover:bg-primary/90 text-white font-medium transition-all duration-300 shadow-lg hover:shadow-primary/30 group">
+                <Button 
+                  className="bg-primary hover:bg-primary/90 text-white font-medium transition-all duration-300 shadow-lg hover:shadow-primary/30 group"
+                  onClick={() => document.getElementById('versions')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   <BookOpen className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   Start Writing Now
                 </Button>
-                <Button variant="outline" className="bg-slate-700 text-white hover:bg-slate-600 border-slate-600">
+                <Button 
+                  variant="outline" 
+                  className="bg-slate-700 text-white hover:bg-slate-600 border-slate-600"
+                  onClick={() => document.getElementById('versions')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   <Pen className="w-5 h-5 mr-2" />
                   Explore Templates
                 </Button>
@@ -104,7 +111,11 @@ const CTA = () => {
                   
                   <div className="mt-6 pt-4 border-t border-slate-700">
                     <div className="flex items-center justify-center">
-                      <Button size="sm" className="bg-primary hover:bg-primary/90 text-white rounded-full hover:shadow-lg hover:shadow-primary/20 transition-all duration-300">
+                      <Button 
+                        size="sm" 
+                        className="bg-primary hover:bg-primary/90 text-white rounded-full hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
+                        onClick={() => document.getElementById('versions')?.scrollIntoView({ behavior: 'smooth' })}
+                      >
                         Begin Your Story
                       </Button>
                     </div>

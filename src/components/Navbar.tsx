@@ -67,7 +67,12 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <Button className="btn-primary glow-on-hover">Get Started</Button>
+            <Button 
+              className="btn-primary glow-on-hover"
+              onClick={() => document.getElementById('versions')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Get Started
+            </Button>
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -105,7 +110,15 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <Button className="btn-primary w-full mt-4 glow-on-hover">Get Started</Button>
+          <Button 
+            className="btn-primary w-full mt-4 glow-on-hover"
+            onClick={() => {
+              document.getElementById('versions')?.scrollIntoView({ behavior: 'smooth' });
+              setIsMobileMenuOpen(false);
+            }}
+          >
+            Get Started
+          </Button>
         </div>
       </div>
     </header>
