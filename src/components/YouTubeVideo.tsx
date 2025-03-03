@@ -11,14 +11,12 @@ const YouTubeVideo: React.FC = () => {
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+        <div className="text-center mb-8 scroll-trigger">
+          <p className="text-muted-foreground max-w-2xl mx-auto">Join thousands upon thousands of users who have embraced Book Writer GPT to revolutionize their storytelling! 🚀📖</p>
+        </div>
+        
         <div className="relative aspect-video w-full bg-slate-900/60 rounded-xl overflow-hidden shadow-xl border border-primary/20 hover:border-primary/40 transition-all duration-300 scroll-trigger">
-          <iframe 
-            className="absolute inset-0 w-full h-full" 
-            src="https://www.youtube.com/embed/Pm9VN2zDDxU?autoplay=1&mute=0&hd=1&vq=hd1080" 
-            title="Book Writer GPT Introduction" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen
-          ></iframe>
+          <iframe className="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/Pm9VN2zDDxU?autoplay=1&mute=0&hd=1&vq=hd1080" title="Book Writer GPT Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           
           <div className="absolute inset-0 bg-slate-900/50 flex items-center justify-center group hover:bg-transparent transition-all duration-300">
             <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 transform transition-transform duration-300 group-hover:scale-110">
@@ -29,7 +27,7 @@ const YouTubeVideo: React.FC = () => {
         
         <div className="mt-6 text-center">
           <p className="text-muted-foreground">
-            Learn how Book Writer GPT transforms your ideas into professionally written books with engaging dialogue and captivating storytelling.
+            Our platform makes it easy to structure your narrative, develop characters, and maintain consistent story flow throughout your book project.
           </p>
         </div>
       </div>
