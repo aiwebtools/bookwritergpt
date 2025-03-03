@@ -1,7 +1,7 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Check, Star, StarHalf } from "lucide-react";
+import { Check, Star, StarHalf, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Version } from "@/data/versionData";
@@ -32,36 +32,62 @@ const StarRating: React.FC<{ rating: number; className?: string }> = ({ rating, 
 };
 
 const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
   return (
     <div
       ref={cardRef}
       className={cn(
-        "rounded-xl border p-6 flex flex-col transition-all duration-500 scroll-trigger interactive hover:shadow-lg hover:-translate-y-1",
-        version.color
+        "rounded-xl border p-6 flex flex-col transition-all duration-500 scroll-trigger",
+        version.color,
+        "transform hover:scale-105 hover:shadow-2xl overflow-hidden"
       )}
-      style={{ transitionDelay: `${index * 100}ms` }}
+      style={{ 
+        transitionDelay: `${index * 100}ms`,
+        transform: isHovered ? "translateY(-12px)" : "translateY(0)",
+        boxShadow: isHovered ? "0 25px 50px -12px rgba(0, 0, 0, 0.25)" : "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
+      {isHovered && (
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute inset-0 opacity-20 bg-gradient-to-tr from-primary/10 to-primary/30 sparkle-bg"></div>
+        </div>
+      )}
+      
       <div className="flex justify-between items-center mb-4">
-        <Badge className={cn("font-medium", version.accentColor, "bg-white/10")}>{version.name}</Badge>
+        <Badge className={cn("font-medium relative overflow-hidden", version.accentColor, "bg-white/10")}>
+          <span className="relative z-10">{version.name}</span>
+          {isHovered && <Sparkles className="absolute right-1 top-1/2 transform -translate-y-1/2 w-3 h-3 animate-pulse" />}
+        </Badge>
         <StarRating rating={version.rating} className={version.textColor} />
       </div>
+      
       <h3 className={cn("text-xl font-semibold mb-2", version.textColor)}>{version.title}</h3>
       <p className={cn("mb-6 flex-grow", version.descriptionColor)}>{version.description}</p>
       
       <ul className="space-y-3 mb-6">
         {version.features.map((feature, i) => (
           <li key={i} className="flex items-start">
-            <Check className={cn("w-5 h-5 mr-2 flex-shrink-0", version.accentColor)} />
+            <Check className={cn("w-5 h-5 mr-2 flex-shrink-0", version.accentColor, isHovered ? "animate-pulse" : "")} />
             <span className={cn("text-sm", version.descriptionColor)}>{feature}</span>
           </li>
         ))}
       </ul>
       
       <Button 
-        className={cn("mt-auto w-full text-white", version.buttonColor)}
+        className={cn(
+          "mt-auto w-full text-white relative overflow-hidden", 
+          version.buttonColor,
+          isHovered ? "pulse-on-hover" : ""
+        )}
         onClick={() => window.open(version.url, '_blank', 'noopener,noreferrer')}
       >
-        Try {version.name}
+        <span className="relative z-10">Try {version.name}</span>
+        {isHovered && (
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"></div>
+        )}
       </Button>
     </div>
   );
