@@ -120,6 +120,7 @@ const Features = () => {
                   variant="ghost" 
                   size="sm" 
                   className="text-primary hover:text-white hover:bg-primary/20 px-0 py-0"
+                  onClick={() => document.getElementById('versions')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Learn more →
                 </Button>
