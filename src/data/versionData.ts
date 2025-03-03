@@ -61,7 +61,8 @@ export const versions: Version[] = [
     rating: 4.0,
     features: [
       "Chapter-by-chapter approach",
-      "No document compilation",
+      "Document compilation available on request",
+      "Canvas mode enabled",
       "Faster writing speed",
       "Good for first drafts",
       "Original 2023 version"
@@ -79,7 +80,8 @@ export const versions: Version[] = [
     rating: 4.3,
     features: [
       "Segmented chapter approach",
-      "No document compilation",
+      "Document compilation available on request",
+      "Canvas mode enabled",
       "Detailed chapter sections",
       "Original 2023 version",
       "Longer chapter format"
@@ -97,7 +99,8 @@ export const versions: Version[] = [
     rating: 4.1,
     features: [
       "Enhanced chapter writing",
-      "No document compilation",
+      "Document compilation available on request",
+      "Canvas mode enabled",
       "Original 2023 version",
       "Improved character development",
       "Better story pacing"
@@ -115,7 +118,8 @@ export const versions: Version[] = [
     rating: 4.2, // Updated from 3.9 to 4.2
     features: [
       "Base original model",
-      "No document compilation",
+      "Document compilation available on request",
+      "Canvas mode enabled",
       "Original 2023 version",
       "Standard chapter format",
       "Straightforward writing style"
