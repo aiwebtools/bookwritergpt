@@ -7,6 +7,7 @@ import Versions from "@/components/Versions";
 import Examples from "@/components/Examples";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import ComparisonSection from "@/components/ComparisonSection";
 
 const Index = () => {
   useEffect(() => {
@@ -39,6 +40,7 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
+        <ComparisonSection />
         <Features />
         <Versions />
         <Examples />

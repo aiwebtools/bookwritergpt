@@ -1,7 +1,6 @@
 
 import React, { useEffect, useRef } from "react";
 import VersionCard from "@/components/VersionCard";
-import ComparisonSection from "@/components/ComparisonSection";
 import { versions } from "@/data/versionData";
 
 const Versions = () => {
@@ -69,8 +68,6 @@ const Versions = () => {
             />
           ))}
         </div>
-        
-        <ComparisonSection />
       </div>
     </section>
   );
