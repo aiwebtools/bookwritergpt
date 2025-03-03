@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Sparkles, BookOpen, Pen } from "lucide-react";
@@ -35,7 +34,6 @@ const CTA = () => {
 
   return (
     <section ref={sectionRef} className="py-24 relative overflow-hidden scroll-trigger bg-slate-900">
-      {/* Background decoration */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-950" />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -70,10 +68,10 @@ const CTA = () => {
                 <Button 
                   variant="outline" 
                   className="bg-slate-700 text-white hover:bg-slate-600 border-slate-600"
-                  onClick={() => document.getElementById('versions')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => window.open("https://www.aiwebtools.ai", "_blank")}
                 >
                   <Pen className="w-5 h-5 mr-2" />
-                  Explore Templates
+                  Access More AI Tools
                 </Button>
               </div>
             </div>
