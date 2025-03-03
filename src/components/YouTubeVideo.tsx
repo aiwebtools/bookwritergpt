@@ -1,8 +1,36 @@
 
-import React from "react";
-import { Play } from "lucide-react";
+import React, { useState } from "react";
+import { Play, Volume2, VolumeX } from "lucide-react";
 
 const YouTubeVideo: React.FC = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  
+  const handlePlayClick = () => {
+    setIsPlaying(true);
+  };
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+    
+    // Access the iframe and toggle mute
+    const iframe = document.querySelector('iframe') as HTMLIFrameElement;
+    if (iframe && iframe.contentWindow) {
+      try {
+        // Send postMessage to control YouTube player
+        iframe.contentWindow.postMessage(
+          JSON.stringify({
+            event: 'command',
+            func: isMuted ? 'unMute' : 'mute'
+          }), 
+          '*'
+        );
+      } catch (error) {
+        console.error("Failed to control YouTube player:", error);
+      }
+    }
+  };
+  
   return (
     <section className="py-12 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -16,12 +44,32 @@ const YouTubeVideo: React.FC = () => {
         </div>
         
         <div className="relative aspect-video w-full bg-slate-900/60 rounded-xl overflow-hidden shadow-xl border border-primary/20 hover:border-primary/40 transition-all duration-300 scroll-trigger">
-          <iframe className="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/Pm9VN2zDDxU?autoplay=1&mute=0&hd=1&vq=hd1080" title="Book Writer GPT Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe 
+            className="absolute inset-0 w-full h-full" 
+            src={`https://www.youtube.com/embed/Pm9VN2zDDxU?enablejsapi=1&autoplay=${isPlaying ? '1' : '0'}&mute=${isMuted ? '1' : '0'}&hd=1&vq=hd1080&rel=0`}
+            title="Book Writer GPT Tutorial" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowFullScreen
+          ></iframe>
           
-          <div className="absolute inset-0 bg-slate-900/50 flex items-center justify-center group hover:bg-transparent transition-all duration-300">
-            <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 transform transition-transform duration-300 group-hover:scale-110">
-              <Play className="w-6 h-6 text-white fill-current transform translate-x-0.5" />
+          {!isPlaying && (
+            <div 
+              className="absolute inset-0 bg-slate-900/50 flex items-center justify-center cursor-pointer"
+              onClick={handlePlayClick}
+            >
+              <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 transform transition-transform duration-300 hover:scale-110">
+                <Play className="w-6 h-6 text-white fill-current transform translate-x-0.5" />
+              </div>
             </div>
+          )}
+          
+          <div className="absolute bottom-4 right-4 z-10">
+            <button 
+              onClick={toggleMute}
+              className="bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-colors"
+            >
+              {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+            </button>
           </div>
         </div>
         
