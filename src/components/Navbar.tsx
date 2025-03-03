@@ -32,7 +32,7 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300",
         isScrolled
-          ? "bg-white/80 backdrop-blur-md shadow-sm"
+          ? "bg-background/80 backdrop-blur-md shadow-lg shadow-black/10"
           : "bg-transparent"
       )}
     >
@@ -44,7 +44,7 @@ const Navbar = () => {
               className="flex items-center space-x-2 text-xl font-medium"
             >
               <BookOpen className="w-6 h-6 text-primary" />
-              <span className="animate-fade-in">Book Writer GPT</span>
+              <span className="animate-fade-in bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent">Book Writer GPT</span>
             </a>
             <a
               href="https://www.aiwebtools.ai"
@@ -62,12 +62,12 @@ const Navbar = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
               >
                 {link.label}
               </a>
             ))}
-            <Button className="btn-primary">Get Started</Button>
+            <Button className="btn-primary glow-on-hover">Get Started</Button>
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -88,7 +88,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-x-0 top-[72px] bg-white/95 backdrop-blur-md shadow-md md:hidden transition-all duration-300 ease-in-out",
+          "fixed inset-x-0 top-[72px] bg-background/95 backdrop-blur-md shadow-lg md:hidden transition-all duration-300 ease-in-out border-t border-border",
           isMobileMenuOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-4 pointer-events-none"
@@ -105,7 +105,7 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <Button className="btn-primary w-full mt-4">Get Started</Button>
+          <Button className="btn-primary w-full mt-4 glow-on-hover">Get Started</Button>
         </div>
       </div>
     </header>
