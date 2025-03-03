@@ -61,7 +61,7 @@ const Hero = () => {
                 className="btn-primary w-full sm:w-auto"
                 onClick={() => document.getElementById('versions')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Start Writing
+                Create Your Own Book
               </Button>
               <Button 
                 variant="outline" 
