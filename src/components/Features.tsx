@@ -7,9 +7,10 @@ import {
   Download, 
   Users, 
   Clock, 
-  PenTool, 
-  Sparkles 
+  Award, 
+  Layers 
 } from "lucide-react";
+import { Button } from "./ui/button";
 
 const Features = () => {
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -43,42 +44,42 @@ const Features = () => {
   
   const features = [
     {
-      icon: <BookOpen className="w-6 h-6 text-primary" />,
+      icon: <BookOpen className="w-7 h-7 text-primary" />,
       title: "Complete Book Creation",
       description: "Writes entire books page by page with seamless continuity between chapters and pages."
     },
     {
-      icon: <MessageSquare className="w-6 h-6 text-primary" />,
+      icon: <MessageSquare className="w-7 h-7 text-primary" />,
       title: "Natural Dialogue",
       description: "Creates engaging character conversations with personality and depth for authentic storytelling."
     },
     {
-      icon: <FileText className="w-6 h-6 text-primary" />,
+      icon: <FileText className="w-7 h-7 text-primary" />,
       title: "Detailed Outlines",
       description: "Generates comprehensive book outlines with chapter titles, themes, and page-by-page breakdowns."
     },
     {
-      icon: <Download className="w-6 h-6 text-primary" />,
+      icon: <Download className="w-7 h-7 text-primary" />,
       title: "Document Compilation",
       description: "Compiles your book into downloadable documents as you write, preserving your progress."
     },
     {
-      icon: <Users className="w-6 h-6 text-primary" />,
+      icon: <Users className="w-7 h-7 text-primary" />,
       title: "Character Development",
       description: "Creates complex characters with distinct personalities, backstories, and emotional depth."
     },
     {
-      icon: <Clock className="w-6 h-6 text-primary" />,
+      icon: <Clock className="w-7 h-7 text-primary" />,
       title: "Proper Pacing",
       description: "Maintains appropriate narrative flow and pacing throughout your entire book."
     },
     {
-      icon: <PenTool className="w-6 h-6 text-primary" />,
+      icon: <Award className="w-7 h-7 text-primary" />,
       title: "Professional Quality",
       description: "Writes in the style of award-winning authors with vivid imagery and compelling narratives."
     },
     {
-      icon: <Sparkles className="w-6 h-6 text-primary" />,
+      icon: <Layers className="w-7 h-7 text-primary" />,
       title: "Multiple Versions",
       description: "Choose from seven different versions to match your specific book writing needs."
     }
@@ -95,7 +96,7 @@ const Features = () => {
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16 scroll-trigger" ref={el => featureRefs.current[0] = el}>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Powerful Features for Authors</h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-slate-300">
             Book Writer GPT provides everything you need to transform your ideas into professionally written books from start to finish.
           </p>
         </div>
@@ -105,14 +106,24 @@ const Features = () => {
             <div 
               key={index}
               ref={el => featureRefs.current[index + 1] = el}
-              className="bg-white rounded-xl p-6 border border-border shadow-sm hover:shadow-md transition-all duration-300 scroll-trigger interactive"
+              className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-primary/20 shadow-lg hover:shadow-primary/20 transition-all duration-300 scroll-trigger interactive group"
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/15 mb-5 group-hover:bg-primary/30 transition-all duration-300">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
+              <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
+              <p className="text-slate-300 group-hover:text-white transition-colors duration-300">{feature.description}</p>
+              
+              <div className="mt-4 h-0 overflow-hidden opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="text-primary hover:text-white hover:bg-primary/20 px-0 py-0"
+                >
+                  Learn more →
+                </Button>
+              </div>
             </div>
           ))}
         </div>
@@ -120,11 +131,11 @@ const Features = () => {
         <div className="mt-16 p-8 bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl scroll-trigger" ref={el => featureRefs.current[9] = el}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-4">Collaborative Writing Process</h3>
-              <p className="text-muted-foreground mb-6">
+              <h3 className="text-2xl font-bold mb-4 text-white">Collaborative Writing Process</h3>
+              <p className="text-slate-300 mb-6">
                 Book Writer GPT works with you every step of the way, seeking your feedback and approval to ensure the final product matches your vision perfectly.
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {[
                   "Ask detailed questions to understand your vision",
                   "Create comprehensive outlines before writing",
@@ -132,48 +143,48 @@ const Features = () => {
                   "Maintain perfect continuity throughout the book",
                   "Compile pages into downloadable documents"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center mr-3 mt-0.5">
-                      <span className="text-primary text-sm font-medium">{i + 1}</span>
+                  <li key={i} className="flex items-start group cursor-pointer">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-primary/30 flex items-center justify-center mr-3 mt-0.5 group-hover:bg-primary/70 transition-colors duration-300">
+                      <span className="text-white text-sm font-medium">{i + 1}</span>
                     </div>
-                    <span>{item}</span>
+                    <span className="text-slate-200 group-hover:text-white transition-colors duration-300">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="h-full flex items-center justify-center">
-              <div className="relative w-full max-w-sm aspect-[3/4] bg-white rounded-xl overflow-hidden shadow-lg border border-border">
+              <div className="relative w-full max-w-sm aspect-[3/4] bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg border border-primary/20 hover:border-primary/40 transition-all duration-300">
                 <div className="absolute inset-0 flex flex-col">
-                  <div className="bg-secondary p-3 border-b border-border flex items-center">
+                  <div className="bg-secondary/80 p-3 border-b border-border flex items-center">
                     <div className="w-3 h-3 bg-red-400 rounded-full mr-2"></div>
                     <div className="w-3 h-3 bg-yellow-400 rounded-full mr-2"></div>
                     <div className="w-3 h-3 bg-green-400 rounded-full mr-2"></div>
-                    <div className="ml-2 text-xs font-medium">Collaboration Assistant</div>
+                    <div className="ml-2 text-xs font-medium text-white">Collaboration Assistant</div>
                   </div>
                   <div className="flex-1 p-6 overflow-auto text-left">
-                    <div className="mb-4 p-3 bg-primary/5 rounded-lg">
+                    <div className="mb-4 p-3 bg-primary/10 rounded-lg">
                       <p className="text-sm font-medium text-primary">Book Writer GPT:</p>
-                      <p className="text-sm">Let's create your book outline. What genre are you interested in?</p>
+                      <p className="text-sm text-white">Let's create your book outline. What genre are you interested in?</p>
                     </div>
                     <div className="mb-4 p-3 bg-secondary/50 rounded-lg ml-8">
-                      <p className="text-sm font-medium">You:</p>
-                      <p className="text-sm">I'd like to write a mystery thriller set in a small coastal town.</p>
+                      <p className="text-sm font-medium text-white">You:</p>
+                      <p className="text-sm text-slate-200">I'd like to write a mystery thriller set in a small coastal town.</p>
                     </div>
-                    <div className="mb-4 p-3 bg-primary/5 rounded-lg">
+                    <div className="mb-4 p-3 bg-primary/10 rounded-lg">
                       <p className="text-sm font-medium text-primary">Book Writer GPT:</p>
-                      <p className="text-sm">Excellent choice! Could you share your thoughts on the main character and the central mystery?</p>
+                      <p className="text-sm text-white">Excellent choice! Could you share your thoughts on the main character and the central mystery?</p>
                     </div>
                     <div className="mb-4 p-3 bg-secondary/50 rounded-lg ml-8">
-                      <p className="text-sm font-medium">You:</p>
-                      <p className="text-sm">The protagonist is a retired detective who moves to a small town to escape her past...</p>
+                      <p className="text-sm font-medium text-white">You:</p>
+                      <p className="text-sm text-slate-200">The protagonist is a retired detective who moves to a small town to escape her past...</p>
                     </div>
-                    <div className="p-3 bg-primary/5 rounded-lg">
+                    <div className="p-3 bg-primary/10 rounded-lg">
                       <p className="text-sm font-medium text-primary">Book Writer GPT:</p>
-                      <p className="text-sm">I love this concept! Let me create a detailed outline for "Shadows by the Shore"...</p>
+                      <p className="text-sm text-white">I love this concept! Let me create a detailed outline for "Shadows by the Shore"...</p>
                     </div>
                   </div>
-                  <div className="p-3 border-t border-border bg-secondary/30 text-center">
-                    <p className="text-xs text-muted-foreground">Book Writer GPT is writing your outline...</p>
+                  <div className="p-3 border-t border-border bg-secondary/50 text-center">
+                    <p className="text-xs text-slate-300">Book Writer GPT is writing your outline...</p>
                   </div>
                 </div>
               </div>
