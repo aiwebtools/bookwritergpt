@@ -3,6 +3,7 @@ import React from "react";
 import { BookOpen, Mail, PhoneCall, ExternalLink } from "lucide-react";
 import { versions } from "@/data/versionData";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -90,6 +91,21 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
+            
+            {/* More AI Tools Button */}
+            <div className="mt-8 flex justify-center">
+              <a
+                href="https://www.aiwebtools.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <div className="rounded-full bg-primary/10 hover:bg-primary/20 w-24 h-24 flex flex-col items-center justify-center transition-all group-hover:shadow-lg group-hover:shadow-primary/20 transform group-hover:-translate-y-1">
+                  <ExternalLink className="w-6 h-6 text-primary mb-2" />
+                  <span className="text-sm text-center text-gray-300 group-hover:text-primary font-medium">More AI Tools</span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
         
