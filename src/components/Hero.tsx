@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { BookOpen, Feather, PenTool, Speech } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
 const Hero = () => {
   const imageRef = useRef<HTMLDivElement>(null);
+  
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!imageRef.current) return;
@@ -27,7 +29,9 @@ const Hero = () => {
       imageRef.current?.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
-  return <section className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24">
+
+  return (
+    <section className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24">
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute -top-[50%] -left-[25%] w-[150%] h-[150%] bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-3xl" />
@@ -94,10 +98,10 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          
-          
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
