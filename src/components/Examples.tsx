@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
@@ -122,8 +123,12 @@ const Examples = () => {
                       <div className="md:w-1/3">
                         <div className="aspect-[2/3] bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg flex items-center justify-center p-6 mb-6">
                           <div className="text-center">
-                            <h3 className="text-xl font-bold mb-2">{example.title}</h3>
-                            <p className="text-sm text-muted-foreground">by {example.author}</p>
+                            <h3 className="text-xl font-bold mb-2 text-gray-800">
+                              {example.title}
+                            </h3>
+                            <p className="text-sm text-gray-700">
+                              by {example.author}
+                            </p>
                           </div>
                         </div>
                         
