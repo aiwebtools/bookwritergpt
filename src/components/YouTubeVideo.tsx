@@ -7,7 +7,7 @@ const YouTubeVideo: React.FC = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false); // Changed to false for unmuted by default
+  const [isMuted, setIsMuted] = useState(false); // Unmuted by default
   const iframeRef = useRef<HTMLIFrameElement>(null);
   
   useEffect(() => {
@@ -114,7 +114,6 @@ const YouTubeVideo: React.FC = () => {
   };
 
   // Construct YouTube URL with all necessary parameters
-  // Changed mute parameter to 0 (unmuted)
   const youtubeEmbedUrl = `https://www.youtube.com/embed/Pm9VN2zDDxU?autoplay=1&mute=0&hd=1&vq=hd1080&enablejsapi=1&playsinline=1&rel=0&origin=${encodeURIComponent(window.location.origin)}`;
 
   return (
