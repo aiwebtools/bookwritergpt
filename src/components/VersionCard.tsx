@@ -85,7 +85,9 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) =>
         onClick={() => window.open(version.url, '_blank', 'noopener,noreferrer')}
       >
         <span className="relative z-10">
-          {version.name === "Movie Script" ? "Try Movie Script Writer GPT" : `Try ${version.name}`}
+          {version.name === "Movie Script" 
+            ? "Try Movie Script Writer GPT" 
+            : `TRY BOOK WRITER GPT ${version.name}`}
         </span>
         {isHovered && (
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"></div>
