@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="bg-secondary/50 py-12 border-t">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="md:col-span-1">
             <div className="flex flex-col">
               <div className="flex items-center space-x-2 mb-2">
@@ -29,17 +29,7 @@ const Footer = () => {
             </p>
           </div>
           
-          <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Features</h3>
-              <ul className="space-y-3">
-                <li><a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Book Outlines</a></li>
-                <li><a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Page Writing</a></li>
-                <li><a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Document Compilation</a></li>
-                <li><a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Character Development</a></li>
-              </ul>
-            </div>
-            
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div>
               <h3 className="text-lg font-semibold mb-4">Versions</h3>
               <ul className="space-y-3">
