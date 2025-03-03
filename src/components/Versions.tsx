@@ -49,8 +49,10 @@ const Versions = () => {
       name: "V1",
       title: "Page by Page",
       description: "Writes each page individually and compiles into a document, perfect for detailed storytelling.",
-      color: "bg-blue-50 border-blue-200",
-      accentColor: "text-blue-600",
+      color: "bg-blue-800/30 border-blue-700/50",
+      textColor: "text-slate-200",
+      descriptionColor: "text-slate-300",
+      accentColor: "text-blue-400",
       buttonColor: "bg-blue-600 hover:bg-blue-700",
       features: [
         "Page-by-page writing approach",
@@ -64,8 +66,10 @@ const Versions = () => {
       name: "V2",
       title: "Shorter Chapters",
       description: "Creates shorter, more concise chapters with document compilation for a faster writing experience.",
-      color: "bg-purple-50 border-purple-200",
-      accentColor: "text-purple-600",
+      color: "bg-purple-800/30 border-purple-700/50",
+      textColor: "text-slate-200",
+      descriptionColor: "text-slate-300",
+      accentColor: "text-purple-400",
       buttonColor: "bg-purple-600 hover:bg-purple-700",
       features: [
         "Shorter chapter format",
@@ -79,8 +83,10 @@ const Versions = () => {
       name: "V3",
       title: "Original Fast",
       description: "The original faster chapter-by-chapter version without document compilation.",
-      color: "bg-amber-50 border-amber-200",
-      accentColor: "text-amber-600",
+      color: "bg-amber-800/30 border-amber-700/50",
+      textColor: "text-slate-200",
+      descriptionColor: "text-slate-300",
+      accentColor: "text-amber-400",
       buttonColor: "bg-amber-600 hover:bg-amber-700",
       features: [
         "Chapter-by-chapter approach",
@@ -94,8 +100,10 @@ const Versions = () => {
       name: "V4",
       title: "Segmented Chapters",
       description: "Breaks each chapter into two or more individualized parts for more detailed writing.",
-      color: "bg-emerald-50 border-emerald-200",
-      accentColor: "text-emerald-600",
+      color: "bg-emerald-800/30 border-emerald-700/50",
+      textColor: "text-slate-200",
+      descriptionColor: "text-slate-300",
+      accentColor: "text-emerald-400",
       buttonColor: "bg-emerald-600 hover:bg-emerald-700",
       features: [
         "Segmented chapter approach",
@@ -109,8 +117,10 @@ const Versions = () => {
       name: "V5",
       title: "Enhanced Chapters",
       description: "Similar to V3 with slightly different directions for enhanced chapter writing.",
-      color: "bg-rose-50 border-rose-200",
-      accentColor: "text-rose-600",
+      color: "bg-rose-800/30 border-rose-700/50",
+      textColor: "text-slate-200",
+      descriptionColor: "text-slate-300",
+      accentColor: "text-rose-400",
       buttonColor: "bg-rose-600 hover:bg-rose-700",
       features: [
         "Enhanced chapter writing",
@@ -124,8 +134,10 @@ const Versions = () => {
       name: "V6",
       title: "Base Original",
       description: "The base original model similar to V3 and V5 with different instructions.",
-      color: "bg-indigo-50 border-indigo-200",
-      accentColor: "text-indigo-600",
+      color: "bg-indigo-800/30 border-indigo-700/50",
+      textColor: "text-slate-200",
+      descriptionColor: "text-slate-300",
+      accentColor: "text-indigo-400",
       buttonColor: "bg-indigo-600 hover:bg-indigo-700",
       features: [
         "Base original model",
@@ -139,8 +151,10 @@ const Versions = () => {
       name: "V7",
       title: "Dialogue Focus",
       description: "Similar to V1 with a particular focus on dialogue enhancement and document compilation.",
-      color: "bg-cyan-50 border-cyan-200",
-      accentColor: "text-cyan-600",
+      color: "bg-cyan-800/30 border-cyan-700/50",
+      textColor: "text-slate-200",
+      descriptionColor: "text-slate-300",
+      accentColor: "text-cyan-400",
       buttonColor: "bg-cyan-600 hover:bg-cyan-700",
       features: [
         "Enhanced dialogue focus",
@@ -180,16 +194,16 @@ const Versions = () => {
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="mb-4">
-                <Badge className={cn("font-medium", version.accentColor, "bg-white")}>{version.name}</Badge>
+                <Badge className={cn("font-medium", version.accentColor, "bg-white/10")}>{version.name}</Badge>
               </div>
-              <h3 className="text-xl font-semibold mb-2">{version.title}</h3>
-              <p className="text-muted-foreground mb-6 flex-grow">{version.description}</p>
+              <h3 className={cn("text-xl font-semibold mb-2", version.textColor)}>{version.title}</h3>
+              <p className={cn("mb-6 flex-grow", version.descriptionColor)}>{version.description}</p>
               
               <ul className="space-y-3 mb-6">
                 {version.features.map((feature, i) => (
                   <li key={i} className="flex items-start">
                     <Check className={cn("w-5 h-5 mr-2 flex-shrink-0", version.accentColor)} />
-                    <span className="text-sm">{feature}</span>
+                    <span className={cn("text-sm", version.descriptionColor)}>{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -202,9 +216,9 @@ const Versions = () => {
         </div>
         
         <div className="mt-16 max-w-3xl mx-auto text-center">
-          <div className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-sm">
-            <h3 className="text-xl font-semibold mb-4">Not Sure Which Version to Choose?</h3>
-            <p className="text-muted-foreground mb-6">
+          <div className="p-6 bg-slate-900/60 backdrop-blur-sm rounded-xl border border-slate-700/50 shadow-sm">
+            <h3 className="text-xl font-semibold mb-4 text-slate-200">Not Sure Which Version to Choose?</h3>
+            <p className="text-slate-300 mb-6">
               Each version of Book Writer GPT has its own strengths. V1 and V7 offer detailed page-by-page writing with document compilation, while V2-V6 provide different approaches to chapter-based writing with varying features.
             </p>
             <Button className="btn-primary">View Detailed Comparison</Button>
