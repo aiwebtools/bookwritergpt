@@ -9,7 +9,6 @@ import Examples from "@/components/Examples";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import ComparisonSection from "@/components/ComparisonSection";
-import FloatingBooks from "@/components/FloatingBooks";
 
 const Index = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -56,7 +55,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col relative sparkle-bg overflow-y-auto" ref={containerRef}>
-      <FloatingBooks />
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-primary/5 to-transparent opacity-50"></div>
         <div className="absolute top-[20%] right-[10%] w-64 h-64 bg-primary/10 rounded-full blur-3xl floating"></div>
