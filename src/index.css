@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -43,14 +44,24 @@
     @apply border-border;
   }
 
-  html {
+  html, body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    height: 100%;
+    overflow-y: auto;
   }
 
   body {
     @apply bg-background text-foreground;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  #root {
+    height: 100%;
+    min-height: 100vh;
+    overflow-y: auto;
   }
 
   ::selection {
@@ -138,6 +149,7 @@
 /* Style scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  display: block;
 }
 
 ::-webkit-scrollbar-track {
