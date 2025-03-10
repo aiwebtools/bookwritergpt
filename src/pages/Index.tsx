@@ -1,5 +1,4 @@
-
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import YouTubeVideo from "@/components/YouTubeVideo";
@@ -9,9 +8,31 @@ import Examples from "@/components/Examples";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import ComparisonSection from "@/components/ComparisonSection";
+import DisclaimerPopup from "@/components/DisclaimerPopup";
 
 const Index = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [showDisclaimer, setShowDisclaimer] = useState(false);
+  
+  useEffect(() => {
+    // Check if the user has already agreed to the disclaimer
+    const hasAgreed = localStorage.getItem("disclaimerAgreed");
+    
+    if (!hasAgreed) {
+      // Show the disclaimer after a short delay for better UX
+      const timer = setTimeout(() => {
+        setShowDisclaimer(true);
+      }, 500);
+      
+      return () => clearTimeout(timer);
+    }
+  }, []);
+  
+  const handleDisclaimerAccept = () => {
+    // Save to localStorage so we don't show it again
+    localStorage.setItem("disclaimerAgreed", "true");
+    setShowDisclaimer(false);
+  };
   
   useEffect(() => {
     // Intersection Observer for scroll animations
@@ -55,6 +76,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col relative sparkle-bg overflow-y-auto" ref={containerRef}>
+      {showDisclaimer && <DisclaimerPopup onAccept={handleDisclaimerAccept} />}
+      
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-primary/5 to-transparent opacity-50"></div>
         <div className="absolute top-[20%] right-[10%] w-64 h-64 bg-primary/10 rounded-full blur-3xl floating"></div>
