@@ -1,4 +1,3 @@
-
 export interface Version {
   name: string;
   title: string;
@@ -70,7 +69,7 @@ export const versions: Version[] = [
       "Good for first drafts",
       "Original 2023 version"
     ],
-    url: "https://chatgpt.com/g/g-jfF1UfEjA-book-writer-gpt-v3-og-version"
+    url: "https://chatgpt.com/g/g-nIhv7ir0B-god-of-book-writing"
   },
   {
     name: "V4",
