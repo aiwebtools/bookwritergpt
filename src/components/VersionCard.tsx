@@ -34,6 +34,9 @@ const StarRating: React.FC<{ rating: number; className?: string }> = ({ rating, 
 const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) => {
   const [isHovered, setIsHovered] = useState(false);
   
+  // Determine the AI technology badge text
+  const aiTechBadge = version.name === "Gemini" ? "Google Gemini AI" : "OpenAI GPT";
+  
   return (
     <div
       ref={cardRef}
@@ -64,7 +67,13 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) =>
         <StarRating rating={version.rating} className={version.textColor} />
       </div>
       
-      <h3 className={cn("text-xl font-semibold mb-2", version.textColor)}>{version.title}</h3>
+      <div className="flex items-center justify-between mb-2">
+        <h3 className={cn("text-xl font-semibold", version.textColor)}>{version.title}</h3>
+        <Badge variant="outline" className={cn("text-xs", version.accentColor)}>
+          {aiTechBadge}
+        </Badge>
+      </div>
+      
       <p className={cn("mb-6 flex-grow", version.descriptionColor)}>{version.description}</p>
       
       <ul className="space-y-3 mb-6">

@@ -1,3 +1,4 @@
+
 export interface Version {
   name: string;
   title: string;
@@ -16,7 +17,7 @@ export const versions: Version[] = [
   {
     name: "V1",
     title: "Page by Page",
-    description: "Writes each page individually and compiles into a document, perfect for detailed storytelling.",
+    description: "Powered by OpenAI's GPT technology. Writes each page individually and compiles into a document, perfect for detailed storytelling.",
     color: "bg-blue-800/30 border-blue-700/50",
     textColor: "text-slate-200",
     descriptionColor: "text-slate-300",
@@ -28,14 +29,15 @@ export const versions: Version[] = [
       "Automatic document compilation",
       "5000 words per page",
       "Perfect continuity between pages",
-      "Detailed descriptions and dialogue"
+      "Detailed descriptions and dialogue",
+      "Powered by OpenAI's GPT"
     ],
     url: "https://chatgpt.com/g/g-F09wUSmod-book-writer-gpt"
   },
   {
     name: "V2",
     title: "Shorter Chapters",
-    description: "Creates shorter, more concise chapters with document compilation for a faster writing experience.",
+    description: "Powered by OpenAI's GPT technology. Creates shorter, more concise chapters with document compilation for a faster writing experience.",
     color: "bg-purple-800/30 border-purple-700/50",
     textColor: "text-slate-200",
     descriptionColor: "text-slate-300",
@@ -47,14 +49,15 @@ export const versions: Version[] = [
       "Automatic document compilation",
       "Faster writing process",
       "Concise storytelling",
-      "Great for shorter books"
+      "Great for shorter books",
+      "Powered by OpenAI's GPT"
     ],
     url: "https://chatgpt.com/g/g-aTxPjlaMZ-book-writer-gpt-v2-short-chapter-book-writer"
   },
   {
     name: "V3",
     title: "Original Fast",
-    description: "The original faster chapter-by-chapter version without document compilation.",
+    description: "Powered by OpenAI's GPT technology. The original faster chapter-by-chapter version without document compilation.",
     color: "bg-amber-800/30 border-amber-700/50",
     textColor: "text-slate-200",
     descriptionColor: "text-slate-300",
@@ -67,14 +70,15 @@ export const versions: Version[] = [
       "Canvas mode enabled",
       "Faster writing speed",
       "Good for first drafts",
-      "Original 2023 version"
+      "Original 2023 version",
+      "Powered by OpenAI's GPT"
     ],
     url: "https://chatgpt.com/g/g-nIhv7ir0B-god-of-book-writing"
   },
   {
     name: "V4",
     title: "Segmented Chapters",
-    description: "Breaks each chapter into two or more individualized parts for more detailed writing.",
+    description: "Powered by OpenAI's GPT technology. Breaks each chapter into two or more individualized parts for more detailed writing.",
     color: "bg-emerald-800/30 border-emerald-700/50",
     textColor: "text-slate-200",
     descriptionColor: "text-slate-300",
@@ -87,14 +91,15 @@ export const versions: Version[] = [
       "Canvas mode enabled",
       "Detailed chapter sections",
       "Original 2023 version",
-      "Longer chapter format"
+      "Longer chapter format",
+      "Powered by OpenAI's GPT"
     ],
     url: "https://chatgpt.com/g/g-1hAoZs9oI-book-writer-gpt-v4-og-segmented-chapter-version"
   },
   {
     name: "V5",
     title: "Enhanced Chapters",
-    description: "Similar to V3 with slightly different directions for enhanced chapter writing.",
+    description: "Powered by OpenAI's GPT technology. Similar to V3 with slightly different directions for enhanced chapter writing.",
     color: "bg-rose-800/30 border-rose-700/50",
     textColor: "text-slate-200",
     descriptionColor: "text-slate-300",
@@ -107,14 +112,15 @@ export const versions: Version[] = [
       "Canvas mode enabled",
       "Original 2023 version",
       "Improved character development",
-      "Better story pacing"
+      "Better story pacing",
+      "Powered by OpenAI's GPT"
     ],
     url: "https://chatgpt.com/g/g-eGZq44yph-book-writers-gpt"
   },
   {
     name: "V6",
     title: "Base Original",
-    description: "The base original model similar to V3 and V5 with different instructions.",
+    description: "Powered by OpenAI's GPT technology. The base original model similar to V3 and V5 with different instructions.",
     color: "bg-indigo-800/30 border-indigo-700/50",
     textColor: "text-slate-200",
     descriptionColor: "text-slate-300",
@@ -127,14 +133,15 @@ export const versions: Version[] = [
       "Canvas mode enabled",
       "Original 2023 version",
       "Standard chapter format",
-      "Straightforward writing style"
+      "Straightforward writing style",
+      "Powered by OpenAI's GPT"
     ],
     url: "https://chatgpt.com/g/g-ACaXKEw78-book-writing-gpt-v6"
   },
   {
     name: "V7",
     title: "Dialogue Focus",
-    description: "Similar to V1 with a particular focus on dialogue enhancement and document compilation.",
+    description: "Powered by OpenAI's GPT technology. Similar to V1 with a particular focus on dialogue enhancement and document compilation.",
     color: "bg-cyan-800/30 border-cyan-700/50",
     textColor: "text-slate-200",
     descriptionColor: "text-slate-300",
@@ -146,7 +153,8 @@ export const versions: Version[] = [
       "Automatic document compilation",
       "Page-by-page approach",
       "Character-driven narratives",
-      "2024 version"
+      "2024 version",
+      "Powered by OpenAI's GPT"
     ],
     url: "https://chatgpt.com/g/g-I9Dcfoe4m-book-writer-gpt-for-long-chapter-books-v7"
   },
@@ -173,7 +181,7 @@ export const versions: Version[] = [
   {
     name: "Movie Script",
     title: "Movie Script Writer",
-    description: "Creates full industry professional movie scripts with proper formatting and structure.",
+    description: "Powered by OpenAI's GPT technology. Creates full industry professional movie scripts with proper formatting and structure.",
     color: "bg-red-800/30 border-red-700/50",
     textColor: "text-slate-200",
     descriptionColor: "text-slate-300",
@@ -186,7 +194,8 @@ export const versions: Version[] = [
       "Character development",
       "Scene descriptions",
       "Dialogue writing",
-      "Full-length feature scripts"
+      "Full-length feature scripts",
+      "Powered by OpenAI's GPT"
     ],
     url: "https://moviescriptwritergpt.lovable.app/"
   }
