@@ -26,8 +26,8 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300",
         isScrolled
-          ? "bg-background shadow-lg shadow-black/20" 
-          : "bg-background/5 backdrop-blur-sm"
+          ? "bg-background/80 backdrop-blur-md shadow-lg shadow-black/20" 
+          : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -91,7 +91,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-x-0 top-[72px] bg-background shadow-lg md:hidden transition-all duration-300 ease-in-out border-t border-border",
+          "fixed inset-x-0 top-[72px] bg-background/95 backdrop-blur-md shadow-lg md:hidden transition-all duration-300 ease-in-out border-t border-border",
           isMobileMenuOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-4 pointer-events-none"
