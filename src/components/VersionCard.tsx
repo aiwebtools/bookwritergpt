@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Check, Star, StarHalf, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Version } from "@/interfaces/versionInterface";
+import { Version } from "@/data/versionData";
 
 interface VersionCardProps {
   version: Version;

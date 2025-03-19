@@ -1,113 +1,141 @@
+
 import React from "react";
+import { BookOpen, Mail, PhoneCall, ExternalLink } from "lucide-react";
+import { versions } from "@/data/versionData";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Facebook, Instagram, Twitter, Github, Mail } from "lucide-react";
-import { versions } from "@/data/versionsData";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary py-12 scroll-trigger">
+    <footer className="bg-[#1A1F2C] py-16 border-t border-[#333a4d]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* About Section */}
-          <div>
-            <h3 className="footer-heading">About Book Writer GPT</h3>
-            <p className="text-gray-300">
-              Book Writer GPT is your AI companion for crafting compelling books.
-              We provide specialized versions tailored to your unique writing needs.
-            </p>
-            <div className="mt-4 flex space-x-4">
-              <a href="#" className="footer-icon-container hover:bg-primary" aria-label="Facebook">
-                <Facebook className="h-5 w-5 text-primary" />
-              </a>
-              <a href="#" className="footer-icon-container hover:bg-primary" aria-label="Twitter">
-                <Twitter className="h-5 w-5 text-primary" />
-              </a>
-              <a href="#" className="footer-icon-container hover:bg-primary" aria-label="Instagram">
-                <Instagram className="h-5 w-5 text-primary" />
-              </a>
-              <a href="https://github.com/username" className="footer-icon-container hover:bg-primary" aria-label="GitHub">
-                <Github className="h-5 w-5 text-primary" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {/* Logo and Description Section */}
+          <div className="space-y-6">
+            <div className="flex flex-col">
+              <div className="flex items-center space-x-3 mb-3">
+                <BookOpen className="w-8 h-8 text-primary" />
+                <span className="text-2xl font-bold text-white">Book Writer GPT</span>
+              </div>
+              <a
+                href="https://www.aiwebtools.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-gray-400 hover:text-primary transition-colors mb-4 ml-11 flex items-center"
+              >
+                Presented By AiWebTools.Ai <ExternalLink className="w-3 h-3 ml-1" />
               </a>
             </div>
+            
+            <p className="text-gray-300 leading-relaxed mb-4 max-w-md">
+              Transform your ideas into professionally written books with AI assistance.
+            </p>
+            
+            <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 px-3 py-1.5">
+              Powered by AI
+            </Badge>
           </div>
-
+          
           {/* Versions Section */}
-          <div>
-            <h3 className="footer-heading">Explore Versions</h3>
-            <ul>
-              {versions.slice(0, 4).map((version, index) => (
-                <li key={index} className="mb-2">
-                  <a href="#" className="footer-link">
-                    {version.name}
+          <div className="space-y-6">
+            <h3 className="text-xl font-semibold text-white border-b border-[#333a4d] pb-2 mb-4">
+              Select Your Version of Book Writer GPT
+            </h3>
+            <ul className="grid grid-cols-1 gap-3">
+              {versions.slice(0, 7).map((version, index) => (
+                <li key={index}>
+                  <a 
+                    href={version.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-primary transition-colors flex items-center group"
+                  >
+                    <span className="bg-primary/20 text-primary px-2 py-1 rounded-md text-xs font-medium min-w-[40px] text-center mr-3">
+                      {version.name}
+                    </span>
+                    <span className="group-hover:underline">{version.title}</span>
                   </a>
                 </li>
               ))}
+            </ul>
+          </div>
+          
+          {/* Contact Section */}
+          <div className="space-y-6">
+            <h3 className="text-xl font-semibold text-white border-b border-[#333a4d] pb-2 mb-4">
+              Contact Support
+            </h3>
+            <ul className="space-y-5">
               <li>
-                <a href="#versions" className="footer-link">
-                  More versions <ArrowRight className="inline-block w-4 h-4 ml-1 mb-0.5" />
+                <a 
+                  href="mailto:Contact@ai-webtools.com" 
+                  className="flex items-center text-gray-300 hover:text-primary transition-colors group"
+                >
+                  <div className="bg-primary/10 p-3 rounded-full mr-4 group-hover:bg-primary/20 transition-colors">
+                    <Mail className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="group-hover:underline">Contact@ai-webtools.com</span>
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="tel:+14758008096" 
+                  className="flex items-center text-gray-300 hover:text-primary transition-colors group"
+                >
+                  <div className="bg-primary/10 p-3 rounded-full mr-4 group-hover:bg-primary/20 transition-colors">
+                    <PhoneCall className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="group-hover:underline">(475) 800-8096</span>
                 </a>
               </li>
             </ul>
-          </div>
-
-          {/* Quick Links Section */}
-          <div>
-            <h3 className="footer-heading">Quick Links</h3>
-            <ul>
-              <li>
-                <a href="#" className="footer-link">
-                  Terms of Service
-                </a>
-              </li>
-              <li>
-                <a href="#" className="footer-link">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="footer-link">
-                  Support
-                </a>
-              </li>
-              <li>
-                <a href="#" className="footer-link">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Newsletter Section */}
-          <div>
-            <h3 className="footer-heading">Subscribe to Our Newsletter</h3>
-            <p className="text-gray-300">
-              Stay up to date with the latest features, updates, and special offers.
-            </p>
-            <div className="mt-4">
-              <div className="relative">
-                <input
-                  type="email"
-                  className="bg-secondary/50 border border-gray-700 text-gray-300 rounded-md py-2 px-4 w-full focus:outline-none focus:border-primary"
-                  placeholder="Your email address"
-                />
-                <Button variant="secondary" size="sm" className="absolute right-1 top-1 h-auto">
-                  Subscribe
-                </Button>
-              </div>
+            
+            {/* More AI Tools Button */}
+            <div className="mt-8 flex justify-center">
+              <a
+                href="https://www.aiwebtools.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <div className="rounded-full bg-primary/10 hover:bg-primary/20 w-24 h-24 flex flex-col items-center justify-center transition-all group-hover:shadow-lg group-hover:shadow-primary/20 transform group-hover:-translate-y-1">
+                  <ExternalLink className="w-6 h-6 text-primary mb-2" />
+                  <span className="text-sm text-center text-gray-300 group-hover:text-primary font-medium">More AI Tools</span>
+                </div>
+              </a>
             </div>
           </div>
         </div>
-
-        {/* Bottom Footer Section */}
-        <div className="mt-12 border-t border-gray-700 pt-6 flex flex-col md:flex-row items-center justify-between">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} Book Writer GPT. All rights reserved.
-          </p>
-          <div className="flex space-x-4">
-            <a href="mailto:support@example.com" className="text-gray-400 hover:text-primary transition-colors duration-300" aria-label="Email us">
-              <Mail className="h-5 w-5" />
+        
+        {/* Bottom Section */}
+        <div className="mt-16 pt-8 border-t border-[#333a4d] flex flex-col md:flex-row justify-between items-center">
+          <a 
+            href="https://www.aiwebtools.ai" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-sm text-gray-400 mb-4 md:mb-0 hover:text-primary transition-colors flex items-center"
+          >
+            © {currentYear} AI WEB TOOLS LLC All rights reserved.
+          </a>
+          
+          <div className="flex space-x-8">
+            <a 
+              href="https://aiwebtools.ai/terms-of-services" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-400 hover:text-primary transition-colors"
+            >
+              Terms of Service
+            </a>
+            <a 
+              href="https://openai.com/policies/privacy-policy/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-400 hover:text-primary transition-colors"
+            >
+              Privacy Policy
             </a>
           </div>
         </div>

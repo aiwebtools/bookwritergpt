@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from "react";
 import VersionCard from "@/components/VersionCard";
-import { versions } from "@/data/versionsData";
+import { versions } from "@/data/versionData";
 
 const Versions = () => {
   const sectionRef = useRef<HTMLElement>(null);

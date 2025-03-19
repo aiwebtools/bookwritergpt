@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 221 90% 65%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 18%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 60.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 224 76% 48%;
+
+    --radius: 0.8rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  #root {
+    height: 100%;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+
+  ::selection {
+    @apply bg-primary/30;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/10 shadow-md;
+  }
+  
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .appear-on-scroll {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+
+  .appear-on-scroll.is-visible {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:brightness-110 transition-all rounded-full px-6 py-3 font-medium shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1 active:translate-y-0 duration-300;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all rounded-full px-6 py-3 font-medium shadow hover:shadow-md transform hover:-translate-y-0.5 duration-300;
+  }
+  
+  .card-hover {
+    @apply transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/10;
+  }
+  
+  .glow {
+    @apply relative;
+  }
+  
+  .glow::after {
+    @apply content-[''] absolute -z-10 inset-0 bg-primary opacity-0 rounded-xl blur-xl transition-opacity duration-500;
+  }
+  
+  .glow:hover::after {
+    @apply opacity-20;
+  }
+  
+  .footer-link {
+    @apply text-gray-300 hover:text-primary transition-colors duration-300;
+  }
+  
+  .footer-heading {
+    @apply text-lg font-semibold text-white border-b border-gray-700 pb-2 mb-4;
+  }
+  
+  .footer-icon-container {
+    @apply bg-primary/10 p-3 rounded-full transition-colors duration-300;
+  }
+}
+
+/* Intersection Observer for Scroll Animations */
+.scroll-trigger {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-trigger.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add a subtle hover effect to interactive elements */
+.interactive {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.interactive:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px -10px rgba(var(--primary), 0.3);
+}
+
+/* Style scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  display: block;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(var(--secondary), 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(200, 200, 201, 0.7);
+  border-radius: 20px;
+  border: 2px solid rgba(var(--secondary), 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(220, 220, 225, 0.9);
+}
+
+/* Animated background */
+.animated-bg {
+  background: linear-gradient(
+    -45deg, 
+    rgba(var(--primary), 0.1), 
+    rgba(var(--background), 0.1),
+    rgba(var(--primary), 0.05), 
+    rgba(var(--background), 0.1)
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animated glow for interactive elements */
+.glow-on-hover {
+  position: relative;
+  z-index: 1;
+}
+
+.glow-on-hover:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--primary), 0.4) 0%,
+    transparent 70%
+  );
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.glow-on-hover:hover:after {
+  opacity: 1;
+}
