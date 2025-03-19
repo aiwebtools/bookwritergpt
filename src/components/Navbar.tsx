@@ -21,10 +21,6 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const navLinks = [
-    { label: "Select Your Version of Book Writer GPT", href: "#versions" },
-  ];
-
   return (
     <header
       className={cn(
@@ -56,20 +52,24 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm font-semibold tracking-wide text-foreground/90 hover:text-primary transition-colors relative px-1 py-1 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
-              >
-                {link.label}
-              </a>
-            ))}
+            <Button 
+              variant="destructive"
+              size="lg"
+              className="glow-on-hover font-semibold tracking-wide text-base"
+              onClick={() => {
+                const versionsSection = document.getElementById('versions');
+                if (versionsSection) {
+                  versionsSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              SELECT YOUR VERSION OF BOOK WRITER GPT
+            </Button>
             <Button 
               className="btn-primary glow-on-hover font-semibold tracking-wide"
               onClick={() => window.open("https://kdp.amazon.com/", "_blank")}
             >
-              Publish Your Book
+              PUBLISH YOUR BOOK ON AMAZON
             </Button>
           </nav>
 
@@ -98,16 +98,19 @@ const Navbar = () => {
         )}
       >
         <div className="container mx-auto px-4 py-6 flex flex-col space-y-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="py-2 text-base font-semibold tracking-wide hover:text-primary transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
+          <Button 
+            variant="destructive"
+            className="w-full glow-on-hover font-semibold tracking-wide"
+            onClick={() => {
+              const versionsSection = document.getElementById('versions');
+              if (versionsSection) {
+                versionsSection.scrollIntoView({ behavior: 'smooth' });
+                setIsMobileMenuOpen(false);
+              }
+            }}
+          >
+            SELECT YOUR VERSION OF BOOK WRITER GPT
+          </Button>
           <Button 
             className="btn-primary w-full mt-4 glow-on-hover font-semibold tracking-wide"
             onClick={() => {
@@ -115,7 +118,7 @@ const Navbar = () => {
               setIsMobileMenuOpen(false);
             }}
           >
-            Publish Your Book
+            PUBLISH YOUR BOOK ON AMAZON
           </Button>
         </div>
       </div>
