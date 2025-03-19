@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -75,11 +76,22 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col relative sparkle-bg overflow-y-auto" ref={containerRef}>
+    <div className="min-h-screen flex flex-col relative overflow-y-auto" ref={containerRef}>
       {showDisclaimer && <DisclaimerPopup onAccept={handleDisclaimerAccept} />}
       
+      {/* Shooting Stars Background */}
+      <div className="night-sky">
+        <div className="stars"></div>
+        <div className="shooting-star"></div>
+        <div className="shooting-star"></div>
+        <div className="shooting-star"></div>
+        <div className="shooting-star"></div>
+        <div className="shooting-star"></div>
+        <div className="shooting-star"></div>
+      </div>
+      
+      {/* Content overlay - slightly modified from original to work better with night sky */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-primary/5 to-transparent opacity-50"></div>
         <div className="absolute top-[20%] right-[10%] w-64 h-64 bg-primary/10 rounded-full blur-3xl floating"></div>
         <div className="absolute bottom-[30%] left-[15%] w-80 h-80 bg-primary/5 rounded-full blur-3xl" style={{animationDelay: "2s"}}></div>
       </div>
