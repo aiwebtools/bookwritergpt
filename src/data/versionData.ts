@@ -159,26 +159,6 @@ export const versions: Version[] = [
     url: "https://chatgpt.com/g/g-I9Dcfoe4m-book-writer-gpt-for-long-chapter-books-v7"
   },
   {
-    name: "Gemini",
-    title: "Book Writer Gemini",
-    description: "Powered by Google's Gemini AI for exceptional creative writing and storytelling capabilities.",
-    color: "bg-green-800/30 border-green-700/50",
-    textColor: "text-slate-200",
-    descriptionColor: "text-slate-300",
-    accentColor: "text-green-400",
-    buttonColor: "bg-green-600 hover:bg-green-700",
-    rating: 4.3,
-    features: [
-      "Google Gemini AI powered",
-      "Advanced creative writing",
-      "Rich character development",
-      "Dynamic plot generation",
-      "Intuitive storytelling",
-      "Google's latest AI technology"
-    ],
-    url: "https://gemini.google.com/gem/df3badd9fcbe"
-  },
-  {
     name: "Movie Script",
     title: "Movie Script Writer",
     description: "Powered by OpenAI's GPT technology. Creates full industry professional movie scripts with proper formatting and structure.",
