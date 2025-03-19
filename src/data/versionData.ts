@@ -1,4 +1,3 @@
-
 export interface Version {
   name: string;
   title: string;
@@ -160,7 +159,7 @@ export const versions: Version[] = [
     descriptionColor: "text-slate-300",
     accentColor: "text-green-400",
     buttonColor: "bg-green-600 hover:bg-green-700",
-    rating: 4.9,
+    rating: 4.3,
     features: [
       "Google Gemini AI powered",
       "Advanced creative writing",
