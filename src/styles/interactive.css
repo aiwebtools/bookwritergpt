@@ -1,0 +1,44 @@
+
+/* Interactive elements */
+.glow-on-hover {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.glow-on-hover:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at var(--x, center) var(--y, center), rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+.glow-on-hover:hover:after {
+  opacity: 1;
+}
+
+/* Gradient button background animation */
+.animated-gradient-btn {
+  background-size: 200% 200%;
+  background-image: linear-gradient(45deg, var(--primary) 0%, var(--primary-light, #5183f5) 50%, var(--primary) 100%);
+  animation: gradient-shift 4s ease infinite;
+  transition: all 0.3s ease;
+}
+
+.animated-gradient-btn:hover {
+  background-position: right center;
+  animation-play-state: paused;
+  box-shadow: 0 10px 20px -10px rgba(var(--primary-rgb), 0.5);
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

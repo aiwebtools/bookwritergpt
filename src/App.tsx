@@ -6,6 +6,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
+// Import our modular CSS files
+import "./styles/base.css";
+import "./styles/night-sky.css";
+import "./styles/shooting-stars.css";
+import "./styles/interactive.css";
+import "./styles/animations.css";
+
 const queryClient = new QueryClient();
 
 const App = () => (

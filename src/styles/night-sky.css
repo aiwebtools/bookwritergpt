@@ -1,0 +1,45 @@
+
+/* Night Sky and Stars Animation */
+.night-sky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #000428, #001e3c);
+  z-index: -10;
+  overflow: hidden;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 200px 80px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 300px 50px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 400px 180px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 500px 200px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 550px 20px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 650px 150px, #fff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 650px 400px;
+  animation: twinkle 1s infinite, moveStars 100s linear infinite;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+@keyframes moveStars {
+  0% { background-position: 0 0; }
+  100% { background-position: -650px 0; }
+}
