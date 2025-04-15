@@ -11,7 +11,9 @@ import "./styles/base.css";
 import "./styles/night-sky.css";
 import "./styles/shooting-stars.css";
 import "./styles/interactive.css";
-import "./styles/animations.css";
+import "./styles/transitions.css";
+import "./styles/keyframes.css";
+import "./styles/hover-effects.css";
 
 const queryClient = new QueryClient();
 
