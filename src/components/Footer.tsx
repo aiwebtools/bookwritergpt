@@ -27,6 +27,7 @@ const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const v8Version = versions.find(version => version.name === "V8");
+  const movieScriptVersion = versions.find(version => version.name === "Movie Script");
 
   return (
     <footer className="bg-[#1A1F2C] py-16 border-t border-[#333a4d]">
@@ -75,7 +76,7 @@ const Footer = () => {
                     <span className="bg-primary/20 text-primary px-2 py-1 rounded-md text-xs font-medium min-w-[40px] text-center mr-3">
                       {version.name}
                     </span>
-                    <span className="group-hover:underline">{version.title}</span>
+                    <span className="group-hover:underline flex-grow">{version.title}</span>
                     <StarRating rating={version.rating} />
                   </a>
                 </li>
@@ -91,11 +92,27 @@ const Footer = () => {
                     <span className="bg-primary/20 text-primary px-2 py-1 rounded-md text-xs font-medium min-w-[40px] text-center mr-3">
                       V8
                     </span>
-                    <span className="group-hover:underline flex items-center">
+                    <span className="group-hover:underline flex items-center flex-grow">
                       {v8Version.title}
                       <Sparkles className="w-4 h-4 ml-2 text-amber-400 animate-pulse" />
                     </span>
                     <StarRating rating={v8Version.rating} />
+                  </a>
+                </li>
+              )}
+              {movieScriptVersion && (
+                <li>
+                  <a 
+                    href={movieScriptVersion.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-primary transition-colors flex items-center group"
+                  >
+                    <span className="bg-red-800/30 text-red-400 px-2 py-1 rounded-md text-xs font-medium text-center mr-3">
+                      MS
+                    </span>
+                    <span className="group-hover:underline flex-grow">Movie Script Writer</span>
+                    <StarRating rating={movieScriptVersion.rating} />
                   </a>
                 </li>
               )}
