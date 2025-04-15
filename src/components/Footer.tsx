@@ -1,12 +1,13 @@
 
 import React from "react";
-import { BookOpen, Mail, PhoneCall, ExternalLink } from "lucide-react";
+import { BookOpen, Mail, PhoneCall, ExternalLink, Sparkles } from "lucide-react";
 import { versions } from "@/data/versionData";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const v8Version = versions.find(version => version.name === "V8");
 
   return (
     <footer className="bg-[#1A1F2C] py-16 border-t border-[#333a4d]">
@@ -59,6 +60,24 @@ const Footer = () => {
                   </a>
                 </li>
               ))}
+              {v8Version && (
+                <li>
+                  <a 
+                    href={v8Version.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-primary transition-colors flex items-center group"
+                  >
+                    <span className="bg-primary/20 text-primary px-2 py-1 rounded-md text-xs font-medium min-w-[40px] text-center mr-3">
+                      V8
+                    </span>
+                    <span className="group-hover:underline flex items-center">
+                      {v8Version.title}
+                      <Sparkles className="w-4 h-4 ml-2 text-amber-400 animate-pulse" />
+                    </span>
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
           
@@ -145,3 +164,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
