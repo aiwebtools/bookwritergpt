@@ -1,9 +1,7 @@
-
 import React from "react";
-import { BookOpen, Mail, PhoneCall, ExternalLink, Sparkles, Star, StarHalf } from "lucide-react";
+import { BookOpen, Mail, PhoneCall, ExternalLink, Sparkles, Star, StarHalf, Clock } from "lucide-react";
 import { versions } from "@/data/versionData";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
 const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
   const fullStars = Math.floor(rating);
@@ -27,13 +25,13 @@ const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const v8Version = versions.find(version => version.name === "V8");
+  const v9Version = versions.find(version => version.name === "V9");
   const movieScriptVersion = versions.find(version => version.name === "Movie Script");
 
   return (
     <footer className="bg-[#1A1F2C] py-16 border-t border-[#333a4d]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Logo and Description Section */}
           <div className="space-y-6">
             <div className="flex flex-col">
               <div className="flex items-center space-x-3 mb-3">
@@ -59,7 +57,6 @@ const Footer = () => {
             </Badge>
           </div>
           
-          {/* Versions Section */}
           <div className="space-y-6">
             <h3 className="text-xl font-semibold text-white border-b border-[#333a4d] pb-2 mb-4">
               Select Your Version of Book Writer GPT
@@ -100,6 +97,25 @@ const Footer = () => {
                   </a>
                 </li>
               )}
+              {v9Version && (
+                <li>
+                  <a 
+                    href={v9Version.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-primary transition-colors flex items-center group"
+                  >
+                    <span className="bg-fuchsia-800/30 text-fuchsia-400 px-2 py-1 rounded-md text-xs font-medium min-w-[40px] text-center mr-3">
+                      V9
+                    </span>
+                    <span className="group-hover:underline flex items-center flex-grow">
+                      Special Edition Time Machine
+                      <Clock className="w-4 h-4 ml-2 text-fuchsia-400 animate-pulse" />
+                    </span>
+                    <StarRating rating={v9Version.rating} />
+                  </a>
+                </li>
+              )}
               {movieScriptVersion && (
                 <li>
                   <a 
@@ -119,7 +135,6 @@ const Footer = () => {
             </ul>
           </div>
           
-          {/* Contact Section */}
           <div className="space-y-6">
             <h3 className="text-xl font-semibold text-white border-b border-[#333a4d] pb-2 mb-4">
               Contact Support
@@ -149,7 +164,6 @@ const Footer = () => {
               </li>
             </ul>
             
-            {/* More AI Tools Button */}
             <div className="mt-8 flex justify-center">
               <a
                 href="https://www.aiwebtools.ai"
@@ -166,7 +180,6 @@ const Footer = () => {
           </div>
         </div>
         
-        {/* Bottom Section */}
         <div className="mt-16 pt-8 border-t border-[#333a4d] flex flex-col md:flex-row justify-between items-center">
           <a 
             href="https://www.aiwebtools.ai" 
