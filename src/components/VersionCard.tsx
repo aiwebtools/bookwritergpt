@@ -1,10 +1,9 @@
-
 import React, { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, StarHalf, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Version } from "@/data/versionData";
+import { Version } from "@/data/versionInterface";
 
 interface VersionCardProps {
   version: Version;
