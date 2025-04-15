@@ -1,9 +1,28 @@
 
 import React from "react";
-import { BookOpen, Mail, PhoneCall, ExternalLink, Sparkles } from "lucide-react";
+import { BookOpen, Mail, PhoneCall, ExternalLink, Sparkles, Star, StarHalf } from "lucide-react";
 import { versions } from "@/data/versionData";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+
+const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 !== 0;
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+  
+  return (
+    <div className="flex items-center ml-2">
+      {[...Array(fullStars)].map((_, i) => (
+        <Star key={`full-${i}`} className="w-3 h-3 fill-current text-amber-400" />
+      ))}
+      {hasHalfStar && <StarHalf className="w-3 h-3 fill-current text-amber-400" />}
+      {[...Array(emptyStars)].map((_, i) => (
+        <Star key={`empty-${i}`} className="w-3 h-3 text-gray-400" />
+      ))}
+      <span className="ml-1 text-xs text-amber-400">{rating.toFixed(1)}</span>
+    </div>
+  );
+};
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -57,6 +76,7 @@ const Footer = () => {
                       {version.name}
                     </span>
                     <span className="group-hover:underline">{version.title}</span>
+                    <StarRating rating={version.rating} />
                   </a>
                 </li>
               ))}
@@ -75,6 +95,7 @@ const Footer = () => {
                       {v8Version.title}
                       <Sparkles className="w-4 h-4 ml-2 text-amber-400 animate-pulse" />
                     </span>
+                    <StarRating rating={v8Version.rating} />
                   </a>
                 </li>
               )}
@@ -164,4 +185,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
