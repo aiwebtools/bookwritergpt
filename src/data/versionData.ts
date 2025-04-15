@@ -1,17 +1,4 @@
-
-export interface Version {
-  name: string;
-  title: string;
-  description: string;
-  color: string;
-  textColor: string;
-  descriptionColor: string;
-  accentColor: string;
-  buttonColor: string;
-  features: string[];
-  rating: number; // Rating out of 5
-  url: string; // Added URL field
-}
+import { Version } from '../data/versionInterface';
 
 export const versions: Version[] = [
   {
@@ -157,6 +144,28 @@ export const versions: Version[] = [
       "Powered by OpenAI's GPT"
     ],
     url: "https://chatgpt.com/g/g-I9Dcfoe4m-book-writer-gpt-for-long-chapter-books-v7"
+  },
+  {
+    name: "V8",
+    title: "Interactive Writing",
+    description: "The most immersive version yet. Write your story interactively, with branching paths and real-time character interactions. You become part of the story!",
+    color: "bg-violet-800/30 border-violet-700/50",
+    textColor: "text-slate-200",
+    descriptionColor: "text-slate-300",
+    accentColor: "text-violet-400",
+    buttonColor: "bg-violet-600 hover:bg-violet-700",
+    rating: 5.0,
+    features: [
+      "Interactive storytelling system",
+      "Branching narrative paths",
+      "Direct character interactions",
+      "5000 words per page",
+      "Real-time story choices",
+      "70% dialogue-focused",
+      "Immersive writing experience",
+      "Powered by OpenAI's GPT"
+    ],
+    url: "https://chatgpt.com/g/g-67fbe0f134ac81918251eb936042e1aa-interactive-book-writer-gpt"
   },
   {
     name: "Movie Script",
