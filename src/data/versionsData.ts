@@ -1,4 +1,5 @@
-import { Version } from '../data/versionInterface';
+
+import { Version } from './versionInterface';
 
 export const versions: Version[] = [
   {
@@ -154,7 +155,7 @@ export const versions: Version[] = [
     descriptionColor: "text-slate-300",
     accentColor: "text-violet-400",
     buttonColor: "bg-violet-600 hover:bg-violet-700",
-    rating: 5.0,
+    rating: 4.3,  // Updated rating from 5.0 to 4.3
     features: [
       "Interactive storytelling system",
       "Branching narrative paths",
