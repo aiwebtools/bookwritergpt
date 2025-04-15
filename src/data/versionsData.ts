@@ -1,4 +1,4 @@
-import { Version } from '@/data/versionInterface';
+import { Version } from '../data/versionInterface';
 
 export const versions: Version[] = [
   {
