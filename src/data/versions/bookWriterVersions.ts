@@ -1,7 +1,7 @@
 
-import { Version } from './versionInterface';
+import { Version } from '../versionInterface';
 
-export const versions: Version[] = [
+export const bookWriterVersions: Version[] = [
   {
     name: "V1",
     title: "Page by Page",
@@ -145,48 +145,5 @@ export const versions: Version[] = [
       "Powered by OpenAI's GPT"
     ],
     url: "https://chatgpt.com/g/g-I9Dcfoe4m-book-writer-gpt-for-long-chapter-books-v7"
-  },
-  {
-    name: "V8",
-    title: "Interactive Writing",
-    description: "The most immersive version yet. Write your story interactively, with branching paths and real-time character interactions. You become part of the story!",
-    color: "bg-violet-800/30 border-violet-700/50",
-    textColor: "text-slate-200",
-    descriptionColor: "text-slate-300",
-    accentColor: "text-violet-400",
-    buttonColor: "bg-violet-600 hover:bg-violet-700",
-    rating: 4.3,  // Updated rating from 5.0 to 4.3
-    features: [
-      "Interactive storytelling system",
-      "Branching narrative paths",
-      "Direct character interactions",
-      "5000 words per page",
-      "Real-time story choices",
-      "70% dialogue-focused",
-      "Immersive writing experience",
-      "Powered by OpenAI's GPT"
-    ],
-    url: "https://chatgpt.com/g/g-67fbe0f134ac81918251eb936042e1aa-interactive-book-writer-gpt"
-  },
-  {
-    name: "Movie Script",
-    title: "Movie Script Writer",
-    description: "Powered by OpenAI's GPT technology. Creates full industry professional movie scripts with proper formatting and structure.",
-    color: "bg-red-800/30 border-red-700/50",
-    textColor: "text-slate-200",
-    descriptionColor: "text-slate-300",
-    accentColor: "text-red-400",
-    buttonColor: "bg-red-600 hover:bg-red-700",
-    rating: 4.9,
-    features: [
-      "Industry standard formatting",
-      "Professional screenplay structure",
-      "Character development",
-      "Scene descriptions",
-      "Dialogue writing",
-      "Full-length feature scripts",
-      "Powered by OpenAI's GPT"
-    ],
-    url: "https://moviescriptwritergpt.lovable.app/"
   }
 ];

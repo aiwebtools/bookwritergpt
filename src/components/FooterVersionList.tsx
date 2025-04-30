@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Sparkles, Clock, PenTool } from "lucide-react";
-import { versions } from "@/data/versionData";
+import { versions } from "@/data/versions";
 import StarRating from "@/components/ui/StarRating";
 
 const FooterVersionList: React.FC = () => {
