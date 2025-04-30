@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, StarHalf, Sparkles, PenTool, Palette } from "lucide-react";
@@ -58,6 +57,8 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) =>
         "transform hover:scale-105 hover:shadow-2xl overflow-hidden"
       )}
       style={{ 
+        transitionDelay: `${index * 100}ms`,
+        transform: isHovered ? "translateY(-12px)" : "translateY(0)",
         boxShadow: isHovered ? "0 25px 50px -12px rgba(0, 0, 0, 0.25)" : "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
       }}
       onMouseEnter={() => setIsHovered(true)}
