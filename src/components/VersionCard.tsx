@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, StarHalf, Sparkles, PenTool, Palette } from "lucide-react";
@@ -9,6 +10,7 @@ interface VersionCardProps {
   version: Version;
   index: number;
   cardRef: (el: HTMLDivElement | null) => void;
+  isMobile?: boolean;
 }
 
 const StarRating: React.FC<{ rating: number; className?: string }> = ({ rating, className }) => {
@@ -30,7 +32,7 @@ const StarRating: React.FC<{ rating: number; className?: string }> = ({ rating, 
   );
 };
 
-const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) => {
+const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef, isMobile }) => {
   const [isHovered, setIsHovered] = useState(false);
   
   // Determine the AI technology badge text
@@ -54,17 +56,21 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) =>
       className={cn(
         "rounded-xl border p-6 flex flex-col transition-all duration-500 scroll-trigger",
         version.color,
-        "transform hover:scale-105 hover:shadow-2xl overflow-hidden"
+        "transform mobile-card",
+        isMobile ? "opacity-100" : "hover:scale-105 hover:shadow-2xl",
+        "overflow-hidden"
       )}
       style={{ 
         transitionDelay: `${index * 100}ms`,
-        transform: isHovered ? "translateY(-12px)" : "translateY(0)",
-        boxShadow: isHovered ? "0 25px 50px -12px rgba(0, 0, 0, 0.25)" : "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+        transform: !isMobile && isHovered ? "translateY(-12px)" : "translateY(0)",
+        boxShadow: !isMobile && isHovered ? "0 25px 50px -12px rgba(0, 0, 0, 0.25)" : "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={() => isMobile && setIsHovered(true)}
+      onTouchEnd={() => isMobile && setIsHovered(false)}
     >
-      {isHovered && (
+      {(isHovered || isMobile) && (
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute inset-0 opacity-20 bg-gradient-to-tr from-primary/10 to-primary/30 sparkle-bg"></div>
         </div>
@@ -73,7 +79,7 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) =>
       <div className="flex justify-between items-center mb-4">
         <Badge className={cn("font-medium relative overflow-hidden", version.accentColor, "bg-white/10")}>
           <span className="relative z-10">{version.name}</span>
-          {isHovered && renderVersionIcon()}
+          {(isHovered || isMobile) && renderVersionIcon()}
         </Badge>
         <StarRating rating={version.rating} className={version.textColor} />
       </div>
@@ -90,7 +96,7 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) =>
       <ul className="space-y-3 mb-6">
         {version.features.map((feature, i) => (
           <li key={i} className="flex items-start">
-            <Check className={cn("w-5 h-5 mr-2 flex-shrink-0", version.accentColor, isHovered ? "animate-pulse" : "")} />
+            <Check className={cn("w-5 h-5 mr-2 flex-shrink-0", version.accentColor, (isHovered || isMobile) ? "animate-pulse" : "")} />
             <span className={cn("text-sm", version.descriptionColor)}>{feature}</span>
           </li>
         ))}
@@ -100,7 +106,7 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) =>
         className={cn(
           "mt-auto w-full text-white relative overflow-hidden", 
           version.buttonColor,
-          isHovered ? "pulse-on-hover" : ""
+          (isHovered || isMobile) ? "pulse-on-hover" : ""
         )}
         onClick={() => window.open(version.url, '_blank', 'noopener,noreferrer')}
       >
@@ -117,7 +123,7 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) =>
                     ? "TRY COLORING BOOK MAKER GPT"
                     : `TRY BOOK WRITER GPT ${version.name}`}
         </span>
-        {isHovered && (
+        {(isHovered || isMobile) && (
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"></div>
         )}
       </Button>

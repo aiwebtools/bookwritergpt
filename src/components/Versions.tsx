@@ -1,23 +1,35 @@
+
 import React, { useEffect, useRef } from "react";
 import VersionCard from "@/components/VersionCard";
 import { versions } from "@/data/versions";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Versions = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.1
+      threshold: isMobile ? 0.05 : 0.1 // Lower threshold for mobile
     };
     
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
+          if (isMobile) {
+            // Don't unobserve on mobile to ensure visibility during scroll
+            setTimeout(() => {
+              if (entry.target && entry.target.classList) {
+                entry.target.classList.add('mobile-visible');
+              }
+            }, 100);
+          } else {
+            observer.unobserve(entry.target);
+          }
         }
       });
     }, observerOptions);
@@ -39,7 +51,7 @@ const Versions = () => {
         if (ref) observer.unobserve(ref);
       });
     };
-  }, []);
+  }, [isMobile]);
   
   return (
     <section id="versions" ref={sectionRef} className="py-24 bg-secondary/50 relative overflow-hidden scroll-trigger">
@@ -64,6 +76,7 @@ const Versions = () => {
               version={version}
               index={index}
               cardRef={el => cardRefs.current[index] = el}
+              isMobile={isMobile}
             />
           ))}
         </div>
