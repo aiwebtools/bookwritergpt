@@ -13,7 +13,7 @@ const Versions = () => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.1 // Use a consistent threshold
+      threshold: 0.1
     };
     
     const observer = new IntersectionObserver((entries) => {
@@ -64,7 +64,7 @@ const Versions = () => {
           {versions.map((version, index) => (
             <div 
               key={index} 
-              className="w-full max-w-md mx-auto"
+              className="w-full max-w-md mx-auto scroll-trigger"
             >
               <VersionCard 
                 version={version}
