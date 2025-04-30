@@ -13,13 +13,16 @@ const Versions = () => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.1
+      threshold: isMobile ? 0.05 : 0.1 // Lower threshold for mobile for earlier triggering
     };
     
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
+          // Add a small delay for each card to create a cascade effect
+          setTimeout(() => {
+            entry.target.classList.add('in-view');
+          }, entry.target === sectionRef.current ? 0 : 100);
           observer.unobserve(entry.target);
         }
       });
@@ -29,8 +32,13 @@ const Versions = () => {
       observer.observe(sectionRef.current);
     }
     
-    cardRefs.current.forEach(ref => {
-      if (ref) observer.observe(ref);
+    cardRefs.current.forEach((ref, index) => {
+      if (ref) {
+        // Add progressive delay to cards based on their position
+        setTimeout(() => {
+          observer.observe(ref);
+        }, isMobile ? index * 50 : 0);
+      }
     });
     
     return () => {
@@ -42,10 +50,10 @@ const Versions = () => {
         if (ref) observer.unobserve(ref);
       });
     };
-  }, []);
+  }, [isMobile]);
   
   return (
-    <section id="versions" ref={sectionRef} className="py-12 md:py-24 bg-secondary/50 relative overflow-hidden scroll-trigger">
+    <section id="versions" ref={sectionRef} className="py-12 md:py-24 bg-secondary/50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 z-0">
         <div className="absolute -top-[10%] left-[60%] w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -53,16 +61,20 @@ const Versions = () => {
       </div>
       
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-8 md:mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-8 md:mb-16 scroll-trigger">
           <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">Choose Your Perfect Version</h2>
           <p className="text-base md:text-lg text-muted-foreground">
             Select from multiple specialized versions, each designed to cater to different writing needs and preferences.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 gap-6 place-content-center place-items-center w-full max-w-full overflow-visible">
+        <div className="grid grid-cols-1 gap-8 md:gap-6 place-content-center place-items-center w-full">
           {versions.map((version, index) => (
-            <div key={index} className="w-full max-w-md mx-auto">
+            <div 
+              key={index} 
+              className="w-full max-w-md mx-auto scroll-trigger" 
+              style={{ opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease-out' }}
+            >
               <VersionCard 
                 version={version}
                 index={index}
