@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Sparkles, Clock, PenTool } from "lucide-react";
+import { Sparkles, Clock, PenTool, Palette } from "lucide-react";
 import { versions } from "@/data/versions";
 import StarRating from "@/components/ui/StarRating";
 
@@ -8,6 +8,7 @@ const FooterVersionList: React.FC = () => {
   const v8Version = versions.find(version => version.name === "V8");
   const v9Version = versions.find(version => version.name === "V9");
   const v10Version = versions.find(version => version.name === "V10");
+  const v11Version = versions.find(version => version.name === "V11");
   const movieScriptVersion = versions.find(version => version.name === "Movie Script");
 
   return (
@@ -86,6 +87,25 @@ const FooterVersionList: React.FC = () => {
                 <PenTool className="w-4 h-4 ml-2 text-teal-400 animate-pulse" />
               </span>
               <StarRating rating={v10Version.rating} />
+            </a>
+          </li>
+        )}
+        {v11Version && (
+          <li>
+            <a 
+              href={v11Version.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-primary transition-colors flex items-center group"
+            >
+              <span className="bg-purple-800/30 text-purple-400 px-2 py-1 rounded-md text-xs font-medium min-w-[40px] text-center mr-3">
+                V11
+              </span>
+              <span className="group-hover:underline flex items-center flex-grow">
+                Coloring Book Maker
+                <Palette className="w-4 h-4 ml-2 text-purple-400 animate-pulse" />
+              </span>
+              <StarRating rating={v11Version.rating} />
             </a>
           </li>
         )}
