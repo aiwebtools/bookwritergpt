@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Sparkles, Clock, PenTool, Palette, BookOpen } from "lucide-react";
+import { Sparkles, Clock, PenTool, Palette, BookOpen, Book } from "lucide-react";
 import { versions } from "@/data/versions";
 import { specializedVersions } from "@/data/versions/specializedVersions";
 import StarRating from "@/components/ui/StarRating";
@@ -11,6 +11,7 @@ const FooterVersionList: React.FC = () => {
   const v10Version = versions.find(version => version.name === "V10");
   const v11Version = versions.find(version => version.name === "V11");
   const coverMakerVersion = specializedVersions.find(version => version.name === "Cover Maker");
+  const comicBookVersion = specializedVersions.find(version => version.name === "Comic Book");
   const movieScriptVersion = versions.find(version => version.name === "Movie Script");
 
   return (
@@ -127,6 +128,25 @@ const FooterVersionList: React.FC = () => {
                 <BookOpen className="w-4 h-4 ml-2 text-blue-400 animate-pulse" />
               </span>
               <StarRating rating={5.0} />
+            </a>
+          </li>
+        )}
+        {comicBookVersion && (
+          <li>
+            <a 
+              href={comicBookVersion.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-primary transition-colors flex items-center group"
+            >
+              <span className="bg-green-800/30 text-green-400 px-2 py-1 rounded-md text-xs font-medium min-w-[40px] text-center mr-3">
+                CB
+              </span>
+              <span className="group-hover:underline flex items-center flex-grow">
+                Comic Book Generator
+                <Book className="w-4 h-4 ml-2 text-green-400 animate-pulse" />
+              </span>
+              <StarRating rating={4.3} />
             </a>
           </li>
         )}

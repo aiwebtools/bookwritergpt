@@ -67,6 +67,27 @@ export const specializedVersions: Version[] = [
     url: "https://chatgpt.com/g/g-6812798f87408191a15336700475f7bc-book-cover-maker-gpt"
   },
   {
+    name: "Comic Book",
+    title: "Comic Book Generator",
+    description: "Powered by GPT-4o with image generation. Creates full comic books with panels, designs, and storylines in collaboration with the user.",
+    color: "bg-green-800/30 border-green-700/50",
+    textColor: "text-slate-200",
+    descriptionColor: "text-slate-300",
+    accentColor: "text-green-400",
+    buttonColor: "bg-green-600 hover:bg-green-700",
+    rating: 4.3,
+    features: [
+      "Comic book panel generation",
+      "Character design assistance",
+      "Story development tools",
+      "Interactive storytelling",
+      "Custom comic art styles",
+      "Full comic book layouts",
+      "GPT-4o powered image generation"
+    ],
+    url: "https://comicbookmakergpt.lovable.app/?via=aiwebtools"
+  },
+  {
     name: "Movie Script",
     title: "Movie Script Writer",
     description: "Powered by OpenAI's GPT technology. Creates full industry professional movie scripts with proper formatting and structure.",
