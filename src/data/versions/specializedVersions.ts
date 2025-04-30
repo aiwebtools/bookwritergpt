@@ -46,6 +46,27 @@ export const specializedVersions: Version[] = [
     url: "https://coloringbookmaker.lovable.app/?via=aiwebtools"
   },
   {
+    name: "Cover Maker",
+    title: "Book Cover Maker",
+    description: "Powered by GPT-4o with image generation. Creates professional book covers for your stories with custom designs for both front and back covers.",
+    color: "bg-blue-800/30 border-blue-700/50",
+    textColor: "text-slate-200",
+    descriptionColor: "text-slate-300",
+    accentColor: "text-blue-400",
+    buttonColor: "bg-blue-600 hover:bg-blue-700",
+    rating: 4.9,
+    features: [
+      "Front and back cover designs",
+      "Custom typography selection",
+      "Professional cover layouts",
+      "Genre-appropriate styling",
+      "High-resolution output",
+      "Marketing-ready designs",
+      "GPT-4o powered image generation"
+    ],
+    url: "https://chatgpt.com/g/g-6812798f87408191a15336700475f7bc-book-cover-maker-gpt"
+  },
+  {
     name: "Movie Script",
     title: "Movie Script Writer",
     description: "Powered by OpenAI's GPT technology. Creates full industry professional movie scripts with proper formatting and structure.",

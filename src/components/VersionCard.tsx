@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Check, Star, StarHalf, Sparkles, PenTool, Palette } from "lucide-react";
+import { Check, Star, StarHalf, Sparkles, PenTool, Palette, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Version } from "@/data/versionInterface";
@@ -37,7 +37,7 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef, isMo
   
   // Determine the AI technology badge text
   const aiTechBadge = version.name === "Gemini" ? "Google Gemini AI" : 
-                       (version.name === "V10" || version.name === "V11") ? "GPT-4o with Images" : "OpenAI GPT";
+                       (version.name === "V10" || version.name === "V11" || version.name === "Cover Maker") ? "GPT-4o with Images" : "OpenAI GPT";
   
   // Custom icon for version cards
   const renderVersionIcon = () => {
@@ -46,6 +46,9 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef, isMo
     }
     if (version.name === "V11") {
       return <Palette className="absolute right-1 top-1/2 transform -translate-y-1/2 w-3 h-3 animate-pulse" />;
+    }
+    if (version.name === "Cover Maker") {
+      return <BookOpen className="absolute right-1 top-1/2 transform -translate-y-1/2 w-3 h-3 animate-pulse" />;
     }
     return <Sparkles className="absolute right-1 top-1/2 transform -translate-y-1/2 w-3 h-3 animate-pulse" />;
   };
@@ -121,7 +124,9 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef, isMo
                   ? "TRY CHILDREN'S PICTURE BOOK MAKER GPT"
                   : version.name === "V11"
                     ? "TRY COLORING BOOK MAKER GPT"
-                    : `TRY BOOK WRITER GPT ${version.name}`}
+                    : version.name === "Cover Maker"
+                      ? "TRY BOOK COVER MAKER GPT"
+                      : `TRY BOOK WRITER GPT ${version.name}`}
         </span>
         {(isHovered || isMobile) && (
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"></div>
