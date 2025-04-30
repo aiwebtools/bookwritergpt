@@ -1,7 +1,12 @@
-import React from "react";
+
+import React, { useState } from "react";
 import { Play } from "lucide-react";
+
 const SecondYouTubeVideo: React.FC = () => {
-  return <section className="py-12 relative overflow-hidden">
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+  return (
+    <section className="py-12 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[20%] right-[10%] w-64 h-64 bg-primary/10 rounded-full blur-3xl floating"></div>
         <div className="absolute bottom-[30%] left-[15%] w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
@@ -13,9 +18,26 @@ const SecondYouTubeVideo: React.FC = () => {
         </div>
         
         <div className="relative aspect-video w-full bg-slate-900/60 rounded-xl overflow-hidden shadow-xl border border-primary/20 hover:border-primary/40 transition-all duration-300 scroll-trigger">
-          <iframe className="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/Pm9VN2zDDxU?autoplay=1&mute=0&hd=1&vq=hd1080" title="Book Writer GPT Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          {!isVideoLoaded && (
+            <div className="absolute inset-0 flex items-center justify-center bg-slate-900/80 z-10">
+              <button 
+                onClick={() => setIsVideoLoaded(true)}
+                className="flex items-center justify-center bg-primary/90 hover:bg-primary text-white rounded-full w-16 h-16 transition-all hover:scale-110"
+              >
+                <Play className="h-8 w-8 ml-1" />
+              </button>
+            </div>
+          )}
           
-          
+          {isVideoLoaded && (
+            <iframe 
+              className="absolute inset-0 w-full h-full" 
+              src="https://www.youtube.com/embed/Pm9VN2zDDxU?autoplay=1&mute=0&hd=1&vq=hd1080" 
+              title="Book Writer GPT Tutorial" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+            ></iframe>
+          )}
         </div>
         
         <div className="mt-6 text-center">
@@ -24,6 +46,8 @@ const SecondYouTubeVideo: React.FC = () => {
           </p>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default SecondYouTubeVideo;
