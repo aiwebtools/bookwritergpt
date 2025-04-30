@@ -88,7 +88,7 @@ const FooterVersionList: React.FC = () => {
                 Children's Picture Books
                 <PenTool className="w-4 h-4 ml-2 text-teal-400 animate-pulse" />
               </span>
-              <StarRating rating={v10Version.rating} />
+              <StarRating rating={4.9} />
             </a>
           </li>
         )}
