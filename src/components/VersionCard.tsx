@@ -1,6 +1,7 @@
+
 import React, { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Check, Star, StarHalf, Sparkles } from "lucide-react";
+import { Check, Star, StarHalf, Sparkles, PenTool } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Version } from "@/data/versionInterface";
@@ -34,7 +35,16 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) =>
   const [isHovered, setIsHovered] = useState(false);
   
   // Determine the AI technology badge text
-  const aiTechBadge = version.name === "Gemini" ? "Google Gemini AI" : "OpenAI GPT";
+  const aiTechBadge = version.name === "Gemini" ? "Google Gemini AI" : 
+                       version.name === "V10" ? "GPT-4o with Images" : "OpenAI GPT";
+  
+  // Custom icon for V10
+  const renderVersionIcon = () => {
+    if (version.name === "V10") {
+      return <PenTool className="absolute right-1 top-1/2 transform -translate-y-1/2 w-3 h-3 animate-pulse" />;
+    }
+    return <Sparkles className="absolute right-1 top-1/2 transform -translate-y-1/2 w-3 h-3 animate-pulse" />;
+  };
   
   return (
     <div
@@ -61,7 +71,7 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) =>
       <div className="flex justify-between items-center mb-4">
         <Badge className={cn("font-medium relative overflow-hidden", version.accentColor, "bg-white/10")}>
           <span className="relative z-10">{version.name}</span>
-          {isHovered && <Sparkles className="absolute right-1 top-1/2 transform -translate-y-1/2 w-3 h-3 animate-pulse" />}
+          {isHovered && renderVersionIcon()}
         </Badge>
         <StarRating rating={version.rating} className={version.textColor} />
       </div>
@@ -97,7 +107,11 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef }) =>
             ? "Try Movie Script Writer GPT" 
             : version.name === "V8"
               ? "TRY INTERACTIVE BOOK WRITER GPT VERSION 8"
-              : `TRY BOOK WRITER GPT ${version.name}`}
+              : version.name === "V9"
+                ? "TRY TIME MACHINE BOOK WRITER GPT VERSION 9"
+                : version.name === "V10"
+                  ? "TRY CHILDREN'S PICTURE BOOK MAKER GPT"
+                  : `TRY BOOK WRITER GPT ${version.name}`}
         </span>
         {isHovered && (
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"></div>

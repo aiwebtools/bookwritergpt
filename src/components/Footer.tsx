@@ -1,5 +1,6 @@
+
 import React from "react";
-import { BookOpen, Mail, PhoneCall, ExternalLink, Sparkles, Star, StarHalf, Clock } from "lucide-react";
+import { BookOpen, Mail, PhoneCall, ExternalLink, Sparkles, Star, StarHalf, Clock, PenTool } from "lucide-react";
 import { versions } from "@/data/versionData";
 import { Badge } from "@/components/ui/badge";
 
@@ -26,6 +27,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const v8Version = versions.find(version => version.name === "V8");
   const v9Version = versions.find(version => version.name === "V9");
+  const v10Version = versions.find(version => version.name === "V10");
   const movieScriptVersion = versions.find(version => version.name === "Movie Script");
 
   return (
@@ -113,6 +115,25 @@ const Footer = () => {
                       <Clock className="w-4 h-4 ml-2 text-fuchsia-400 animate-pulse" />
                     </span>
                     <StarRating rating={v9Version.rating} />
+                  </a>
+                </li>
+              )}
+              {v10Version && (
+                <li>
+                  <a 
+                    href={v10Version.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-primary transition-colors flex items-center group"
+                  >
+                    <span className="bg-teal-800/30 text-teal-400 px-2 py-1 rounded-md text-xs font-medium min-w-[40px] text-center mr-3">
+                      V10
+                    </span>
+                    <span className="group-hover:underline flex items-center flex-grow">
+                      Children's Picture Books
+                      <PenTool className="w-4 h-4 ml-2 text-teal-400 animate-pulse" />
+                    </span>
+                    <StarRating rating={v10Version.rating} />
                   </a>
                 </li>
               )}
