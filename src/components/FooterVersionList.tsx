@@ -1,7 +1,8 @@
 
 import React from "react";
-import { Sparkles, Clock, PenTool, Palette } from "lucide-react";
+import { Sparkles, Clock, PenTool, Palette, BookOpen } from "lucide-react";
 import { versions } from "@/data/versions";
+import { specializedVersions } from "@/data/versions/specializedVersions";
 import StarRating from "@/components/ui/StarRating";
 
 const FooterVersionList: React.FC = () => {
@@ -9,6 +10,7 @@ const FooterVersionList: React.FC = () => {
   const v9Version = versions.find(version => version.name === "V9");
   const v10Version = versions.find(version => version.name === "V10");
   const v11Version = versions.find(version => version.name === "V11");
+  const coverMakerVersion = specializedVersions.find(version => version.name === "Cover Maker");
   const movieScriptVersion = versions.find(version => version.name === "Movie Script");
 
   return (
@@ -106,6 +108,25 @@ const FooterVersionList: React.FC = () => {
                 <Palette className="w-4 h-4 ml-2 text-purple-400 animate-pulse" />
               </span>
               <StarRating rating={v11Version.rating} />
+            </a>
+          </li>
+        )}
+        {coverMakerVersion && (
+          <li>
+            <a 
+              href={coverMakerVersion.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-primary transition-colors flex items-center group"
+            >
+              <span className="bg-blue-800/30 text-blue-400 px-2 py-1 rounded-md text-xs font-medium min-w-[40px] text-center mr-3">
+                CM
+              </span>
+              <span className="group-hover:underline flex items-center flex-grow">
+                Book Cover Maker
+                <BookOpen className="w-4 h-4 ml-2 text-blue-400 animate-pulse" />
+              </span>
+              <StarRating rating={5.0} />
             </a>
           </li>
         )}
