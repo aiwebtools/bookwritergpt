@@ -64,7 +64,7 @@ export const specializedVersions: Version[] = [
       "Marketing-ready designs",
       "GPT-4o powered image generation"
     ],
-    url: "https://chatgpt.com/g/g-6812798f87408191a15336700475f7bc-book-cover-maker-gpt"
+    url: "https://chatgpt.com/g/g-6812c1c50ed48191b6b1647d7d52c62b-graphic-cover-design-gpt"
   },
   {
     name: "Comic Book",
