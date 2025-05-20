@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -64,46 +65,6 @@ const Index = () => {
       });
     };
     
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      document.querySelectorAll(".scroll-trigger").forEach((el) => {
-        observer.unobserve(el);
-      });
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-
-  useEffect(() => {
-    // Intersection Observer for scroll animations
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    // Observe all elements with the scroll-trigger class
-    document.querySelectorAll(".scroll-trigger").forEach((el) => {
-      observer.observe(el);
-    });
-    
-    // Interactive glow effect that follows the mouse
-    const handleMouseMove = (e: MouseEvent) => {
-      document.querySelectorAll('.glow-on-hover').forEach((element) => {
-        const rect = (element as HTMLElement).getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        (element as HTMLElement).style.setProperty('--x', `${x}px`);
-        (element as HTMLElement).style.setProperty('--y', `${y}px`);
-      });
-    };
-    
     // Add mouse parallax effect to stars
     const handleMouseMoveStars = (e: MouseEvent) => {
       const stars = document.querySelector('.stars') as HTMLElement;
@@ -117,12 +78,29 @@ const Index = () => {
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mousemove', handleMouseMoveStars);
 
+    // Function to make all external links open in a new tab
+    const updateExternalLinks = () => {
+      document.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && (href.startsWith('http') || href.startsWith('https')) && !link.getAttribute('target')) {
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+    };
+
+    // Call initially and add a mutation observer to catch dynamically added links
+    updateExternalLinks();
+    const observer2 = new MutationObserver(updateExternalLinks);
+    observer2.observe(document.body, { childList: true, subtree: true });
+
     return () => {
       document.querySelectorAll(".scroll-trigger").forEach((el) => {
         observer.unobserve(el);
       });
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mousemove', handleMouseMoveStars);
+      observer2.disconnect();
     };
   }, []);
 

@@ -33,6 +33,9 @@ const DisclaimerPopup = ({ onAccept }: DisclaimerPopupProps) => {
             <p>
               Book Writer GPT may occasionally produce content that requires additional editing to meet your specific requirements and standards.
             </p>
+            <p className="font-semibold text-primary-foreground">
+              <span className="text-primary">Usage Information:</span> Unrestricted usage is available for free with a ChatGPT Plus subscription or higher. Free accounts have limited interactions that reset periodically.
+            </p>
           </div>
           
           <div className="flex justify-center">

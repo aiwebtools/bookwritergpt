@@ -38,15 +38,28 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
+  href?: string
+  target?: string
+  rel?: string
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, href, target, rel, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
+
+    // If there's an href and it's an external URL, open in new tab
+    const isExternal = href && (href.startsWith('http') || href.startsWith('https'));
+    const externalProps = isExternal ? {
+      target: target || "_blank",
+      rel: rel || "noopener noreferrer"
+    } : {};
+    
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
+        {...(href ? { href } : {})}
+        {...externalProps}
         {...props}
       />
     )
