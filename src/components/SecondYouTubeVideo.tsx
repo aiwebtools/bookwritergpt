@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Play } from "lucide-react";
+
 const SecondYouTubeVideo: React.FC = () => {
   return <section className="py-12 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -15,8 +16,6 @@ const SecondYouTubeVideo: React.FC = () => {
         
         <div className="relative aspect-video w-full bg-slate-900/60 rounded-xl overflow-hidden shadow-xl border border-primary/20 hover:border-primary/40 transition-all duration-300 scroll-trigger">
           <iframe className="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/qcRNvc6Gmy8?autoplay=1&mute=0&hd=1&vq=hd1080" title="Book Writer GPT Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-          
-          
         </div>
         
         <div className="mt-6 text-center">
@@ -27,4 +26,5 @@ const SecondYouTubeVideo: React.FC = () => {
       </div>
     </section>;
 };
+
 export default SecondYouTubeVideo;
