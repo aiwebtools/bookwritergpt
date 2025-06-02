@@ -16,7 +16,14 @@ const Footer = () => {
           <FooterContactSection />
         </div>
         
-        <div className="mt-16 pt-8 border-t border-[#333a4d] flex flex-col md:flex-row justify-between items-center">
+        {/* Disclaimer */}
+        <div className="mt-12 pt-6 border-t border-[#333a4d]/50">
+          <p className="text-center text-sm text-gray-400 mb-6">
+            This website is for informational, educational and research purposes only.
+          </p>
+        </div>
+        
+        <div className="mt-8 pt-8 border-t border-[#333a4d] flex flex-col md:flex-row justify-between items-center">
           <a 
             href="https://www.aiwebtools.ai" 
             target="_blank" 
@@ -28,7 +35,7 @@ const Footer = () => {
           
           <div className="flex space-x-8">
             <a 
-              href="https://aiwebtools.ai/terms-of-services" 
+              href="https://aiwebtools.lovable.app/disclaimers" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-400 hover:text-primary transition-colors"
