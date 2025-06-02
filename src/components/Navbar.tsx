@@ -24,10 +24,10 @@ const Navbar = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 py-6 transition-all duration-500",
+        "fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300",
         isScrolled
-          ? "bg-gradient-to-r from-purple-900/80 via-blue-900/80 to-indigo-900/80 backdrop-blur-lg shadow-2xl shadow-purple-500/20 border-b border-purple-500/30" 
-          : "bg-gradient-to-r from-purple-900/20 via-blue-900/20 to-indigo-900/20 backdrop-blur-md"
+          ? "bg-background shadow-lg shadow-black/20" 
+          : "bg-background/40 backdrop-blur-md"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,29 +35,27 @@ const Navbar = () => {
           <div className="flex flex-col">
             <a
               href="#"
-              className="flex items-center space-x-3 text-xl font-medium group"
+              className="flex items-center space-x-2 text-xl font-medium group"
             >
-              <div className="bg-gradient-to-r from-purple-500/30 to-blue-500/30 p-2 rounded-full border border-purple-400/30 shadow-lg group-hover:shadow-purple-500/40 transition-all duration-300">
-                <BookOpen className="w-6 h-6 text-purple-200 group-hover:text-white transition-colors duration-300" />
-              </div>
-              <span className="animate-fade-in bg-gradient-to-r from-purple-200 via-blue-200 to-indigo-200 bg-clip-text text-transparent font-bold tracking-tight text-2xl text-shimmer">Book Writer GPT</span>
+              <BookOpen className="w-6 h-6 text-primary group-hover:text-primary/80 transition-colors" />
+              <span className="animate-fade-in bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent font-bold tracking-tight">Book Writer GPT</span>
             </a>
             <a
               href="https://www.aiwebtools.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-purple-300/80 hover:text-purple-200 transition-all duration-300 ml-14 font-medium glow-on-hover transform hover:scale-105"
+              className="text-xs text-muted-foreground hover:text-primary transition-colors ml-8 font-medium"
             >
               Presented By AiWebTools.Ai
             </a>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-8">
             <Button 
               variant="destructive"
               size="lg"
-              className="glow-on-hover font-semibold tracking-wide text-base bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-500 hover:to-pink-500 shadow-2xl shadow-red-500/30 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 border border-red-400/30 px-6 py-3"
+              className="glow-on-hover font-semibold tracking-wide text-base"
               onClick={() => {
                 const versionsSection = document.getElementById('versions');
                 if (versionsSection) {
@@ -68,7 +66,7 @@ const Navbar = () => {
               SELECT YOUR VERSION OF BOOK WRITER GPT
             </Button>
             <Button 
-              className="btn-primary glow-on-hover font-semibold tracking-wide px-6 py-3"
+              className="btn-primary glow-on-hover font-semibold tracking-wide"
               onClick={() => window.open("https://kdp.amazon.com/", "_blank")}
             >
               PUBLISH YOUR BOOK ON AMAZON
@@ -77,7 +75,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden p-3 text-purple-200 rounded-full hover:bg-purple-500/20 transition-all duration-300 border border-purple-400/30 glow-on-hover transform hover:scale-110"
+            className="md:hidden p-2 text-foreground rounded-full hover:bg-background/20 transition-colors"
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
@@ -93,16 +91,16 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-x-0 top-[88px] bg-gradient-to-r from-purple-900/95 via-blue-900/95 to-indigo-900/95 backdrop-blur-lg shadow-2xl md:hidden transition-all duration-500 ease-in-out border-t border-purple-500/30",
+          "fixed inset-x-0 top-[72px] bg-background/95 backdrop-blur-md shadow-lg md:hidden transition-all duration-300 ease-in-out border-t border-border",
           isMobileMenuOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-4 pointer-events-none"
         )}
       >
-        <div className="container mx-auto px-4 py-8 flex flex-col space-y-6">
+        <div className="container mx-auto px-4 py-6 flex flex-col space-y-4">
           <Button 
             variant="destructive"
-            className="w-full glow-on-hover font-semibold tracking-wide bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-500 hover:to-pink-500 shadow-2xl shadow-red-500/30 transform hover:scale-105 transition-all duration-300 border border-red-400/30 py-4"
+            className="w-full glow-on-hover font-semibold tracking-wide"
             onClick={() => {
               const versionsSection = document.getElementById('versions');
               if (versionsSection) {
@@ -114,7 +112,7 @@ const Navbar = () => {
             SELECT YOUR VERSION OF BOOK WRITER GPT
           </Button>
           <Button 
-            className="btn-primary w-full glow-on-hover font-semibold tracking-wide py-4"
+            className="btn-primary w-full mt-4 glow-on-hover font-semibold tracking-wide"
             onClick={() => {
               window.open("https://kdp.amazon.com/", "_blank");
               setIsMobileMenuOpen(false);
