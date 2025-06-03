@@ -1,0 +1,76 @@
+
+/* Intersection Observer for Scroll Animations */
+.scroll-trigger {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-trigger.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add a subtle hover effect to interactive elements */
+.interactive {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.interactive:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px -10px rgba(var(--primary), 0.3);
+}
+
+/* Animated background */
+.animated-bg {
+  background: linear-gradient(
+    -45deg, 
+    rgba(var(--primary), 0.1), 
+    rgba(var(--background), 0.1),
+    rgba(var(--primary), 0.05), 
+    rgba(var(--background), 0.1)
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animated glow for interactive elements */
+.glow-on-hover {
+  position: relative;
+  z-index: 1;
+}
+
+.glow-on-hover:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--primary), 0.4) 0%,
+    transparent 70%
+  );
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.glow-on-hover:hover:after {
+  opacity: 1;
+}

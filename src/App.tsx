@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,14 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
-// Import our modular CSS files
-import "./styles/base.css";
-import "./styles/night-sky.css";
-import "./styles/shooting-stars.css";
-import "./styles/interactive.css";
-import "./styles/transitions.css";
-import "./styles/keyframes.css";
-import "./styles/hover-effects.css";
+// Import our main CSS file which now includes all modular imports
+import "./index.css";
 
 const queryClient = new QueryClient();
 
