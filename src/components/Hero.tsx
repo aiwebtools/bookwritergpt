@@ -32,7 +32,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24">
+    <section className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24" role="banner">
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute -top-[50%] -left-[25%] w-[150%] h-[150%] bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-3xl" />
@@ -45,33 +45,33 @@ const Hero = () => {
           <div className="max-w-xl text-center">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 animate-fade-down">
               <BookOpen className="w-4 h-4 mr-2" />
-              <span>AI-Powered Book Writing</span>
+              <span>Free AI Web Tools - AI-Powered Book Writing</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight mb-6 animate-fade-up" style={{
             animationDelay: '0.1s'
           }}>
-              Transform Your Ideas Into Complete Books
+              Transform Your Ideas Into Complete Books with Free AI Tools
             </h1>
             
-            <p className="text-lg text-muted-foreground mb-8 animate-fade-up" style={{
+            <h2 className="text-lg text-muted-foreground mb-8 animate-fade-up font-medium" style={{
             animationDelay: '0.2s'
           }}>
-              Book Writer GPT assists you in creating professional, well-structured books with seamless page-to-page continuity, engaging dialogue, and captivating storytelling.
-            </p>
+              Book Writer GPT - The ultimate free AI web tool that assists you in creating professional, well-structured books with seamless page-to-page continuity, engaging dialogue, and captivating storytelling using artificial intelligence.
+            </h2>
             
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-up" style={{
             animationDelay: '0.3s'
           }}>
               <Button className="btn-primary w-full sm:w-auto" onClick={() => document.getElementById('versions')?.scrollIntoView({
               behavior: 'smooth'
-            })}>
-                Create Your Own Book
+            })} aria-label="Start creating your book with free AI tools">
+                Create Your Own Book - Free AI Tools
               </Button>
               <Button variant="outline" className="w-full sm:w-auto" onClick={() => document.getElementById('versions')?.scrollIntoView({
               behavior: 'smooth'
-            })}>
-                Learn More
+            })} aria-label="Learn more about our AI web tools">
+                Learn More About AI Web Tools
               </Button>
             </div>
             
@@ -83,8 +83,8 @@ const Hero = () => {
                   <PenTool className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Professional Quality</h3>
-                  <p className="text-sm text-muted-foreground">Award-winning author style</p>
+                  <h3 className="font-medium">Professional Quality AI Tools</h3>
+                  <p className="text-sm text-muted-foreground">Award-winning author style with AI</p>
                 </div>
               </div>
               
@@ -93,7 +93,7 @@ const Hero = () => {
                   <Speech className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Rich Dialogue</h3>
+                  <h3 className="font-medium">AI-Generated Rich Dialogue</h3>
                   <p className="text-sm text-muted-foreground">Natural character interactions</p>
                 </div>
               </div>

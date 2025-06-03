@@ -1,0 +1,22 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://aiwebtools.ai/</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1488590528505-98d2b5aba04b</image:loc>
+      <image:title>AI Web Tools - Free AI Tools for Book Writing</image:title>
+      <image:caption>Book Writer GPT AI tool interface</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aiwebtools.lovable.app/disclaimers</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>

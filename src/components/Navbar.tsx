@@ -29,6 +29,7 @@ const Navbar = () => {
           ? "bg-background shadow-lg shadow-black/20" 
           : "bg-background/40 backdrop-blur-md"
       )}
+      role="banner"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -36,22 +37,24 @@ const Navbar = () => {
             <a
               href="#"
               className="flex items-center space-x-2 text-xl font-medium group"
+              aria-label="AI Web Tools - Free AI Tools for Book Writing"
             >
               <BookOpen className="w-6 h-6 text-primary group-hover:text-primary/80 transition-colors" />
-              <span className="animate-fade-in bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent font-bold tracking-tight">Book Writer GPT</span>
+              <span className="animate-fade-in bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent font-bold tracking-tight">Book Writer GPT - Free AI Web Tools</span>
             </a>
             <a
               href="https://www.aiwebtools.ai"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs text-muted-foreground hover:text-primary transition-colors ml-8 font-medium"
+              aria-label="Visit AI Web Tools main website"
             >
-              Presented By AiWebTools.Ai
+              Presented By AiWebTools.Ai - Free AI Tools
             </a>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
             <Button 
               variant="destructive"
               size="lg"
@@ -62,14 +65,16 @@ const Navbar = () => {
                   versionsSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
+              aria-label="Select your version of Book Writer GPT AI tool"
             >
-              SELECT YOUR VERSION OF BOOK WRITER GPT
+              SELECT YOUR FREE AI BOOK WRITER VERSION
             </Button>
             <Button 
               className="btn-primary glow-on-hover font-semibold tracking-wide"
               onClick={() => window.open("https://kdp.amazon.com/", "_blank")}
+              aria-label="Publish your AI-written book on Amazon KDP"
             >
-              PUBLISH YOUR BOOK ON AMAZON
+              PUBLISH YOUR AI BOOK ON AMAZON
             </Button>
           </nav>
 
@@ -77,7 +82,8 @@ const Navbar = () => {
           <button
             className="md:hidden p-2 text-foreground rounded-full hover:bg-background/20 transition-colors"
             onClick={toggleMobileMenu}
-            aria-label="Toggle menu"
+            aria-label="Toggle mobile menu"
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -96,6 +102,8 @@ const Navbar = () => {
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-4 pointer-events-none"
         )}
+        role="navigation"
+        aria-label="Mobile navigation"
       >
         <div className="container mx-auto px-4 py-6 flex flex-col space-y-4">
           <Button 
@@ -108,8 +116,9 @@ const Navbar = () => {
                 setIsMobileMenuOpen(false);
               }
             }}
+            aria-label="Select your free AI book writer version"
           >
-            SELECT YOUR VERSION OF BOOK WRITER GPT
+            SELECT YOUR FREE AI BOOK WRITER VERSION
           </Button>
           <Button 
             className="btn-primary w-full mt-4 glow-on-hover font-semibold tracking-wide"
@@ -117,8 +126,9 @@ const Navbar = () => {
               window.open("https://kdp.amazon.com/", "_blank");
               setIsMobileMenuOpen(false);
             }}
+            aria-label="Publish your AI book on Amazon"
           >
-            PUBLISH YOUR BOOK ON AMAZON
+            PUBLISH YOUR AI BOOK ON AMAZON
           </Button>
         </div>
       </div>
