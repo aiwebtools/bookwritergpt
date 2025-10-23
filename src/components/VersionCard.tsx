@@ -37,6 +37,8 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef, isMo
   
   // Determine the AI technology badge text
   const aiTechBadge = version.name === "Gemini" ? "Google Gemini AI" : 
+                       version.name === "V7.5" ? "GPT-5" :
+                       version.name === "V7" ? "GPT-4o" :
                        (version.name === "V10" || version.name === "V11" || version.name === "Cover Maker") ? "GPT-4o with Images" : "OpenAI GPT";
   
   // Custom icon for version cards
@@ -59,6 +61,7 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef, isMo
       className={cn(
         "rounded-xl border p-6 flex flex-col transition-all duration-500 scroll-trigger",
         version.color,
+        version.featured && "border-4 border-amber-400/80 shadow-[0_0_30px_rgba(251,191,36,0.5)] animate-pulse",
         "transform mobile-card",
         isMobile ? "opacity-100" : "hover:scale-105 hover:shadow-2xl",
         "overflow-hidden"
@@ -66,7 +69,11 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef, isMo
       style={{ 
         transitionDelay: `${index * 100}ms`,
         transform: !isMobile && isHovered ? "translateY(-12px)" : "translateY(0)",
-        boxShadow: !isMobile && isHovered ? "0 25px 50px -12px rgba(0, 0, 0, 0.25)" : "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+        boxShadow: version.featured 
+          ? "0 0 40px rgba(251, 191, 36, 0.6), 0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+          : !isMobile && isHovered 
+            ? "0 25px 50px -12px rgba(0, 0, 0, 0.25)" 
+            : "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -124,9 +131,11 @@ const VersionCard: React.FC<VersionCardProps> = ({ version, index, cardRef, isMo
                   ? "TRY CHILDREN'S PICTURE BOOK MAKER GPT"
                   : version.name === "V11"
                     ? "TRY COLORING BOOK MAKER GPT"
-                    : version.name === "Cover Maker"
+                     : version.name === "Cover Maker"
                       ? "TRY BOOK COVER MAKER GPT"
-                      : `TRY BOOK WRITER GPT ${version.name}`}
+                      : version.name === "V7.5"
+                        ? "TRY BOOK WRITER GPT V7.5 (GPT-5)"
+                        : `TRY BOOK WRITER GPT ${version.name}`}
         </span>
         {(isHovered || isMobile) && (
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"></div>

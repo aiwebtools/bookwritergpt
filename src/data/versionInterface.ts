@@ -11,4 +11,5 @@ export interface Version {
   rating: number;
   features: string[];
   url: string;
+  featured?: boolean;
 }

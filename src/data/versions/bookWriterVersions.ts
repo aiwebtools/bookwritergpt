@@ -129,21 +129,43 @@ export const bookWriterVersions: Version[] = [
   {
     name: "V7",
     title: "Dialogue Focus",
-    description: "Powered by OpenAI's GPT technology. Similar to V1 with a particular focus on dialogue enhancement and document compilation.",
+    description: "Powered by OpenAI's GPT-4o. Our most popular version with enhanced dialogue focus and document compilation.",
     color: "bg-cyan-800/30 border-cyan-700/50",
     textColor: "text-slate-200",
     descriptionColor: "text-slate-300",
     accentColor: "text-cyan-400",
     buttonColor: "bg-cyan-600 hover:bg-cyan-700",
     rating: 4.8,
+    featured: true,
     features: [
       "Enhanced dialogue focus",
       "Automatic document compilation",
       "Page-by-page approach",
       "Character-driven narratives",
-      "2024 version",
-      "Powered by OpenAI's GPT"
+      "Most used version",
+      "Powered by GPT-4o"
     ],
     url: "https://chatgpt.com/g/g-I9Dcfoe4m-book-writer-gpt-for-long-chapter-books-v7"
+  },
+  {
+    name: "V7.5",
+    title: "Next-Gen Writing",
+    description: "Powered by OpenAI's GPT-5. The newest and most advanced version combining V7's dialogue excellence with cutting-edge AI capabilities.",
+    color: "bg-violet-800/30 border-violet-700/50",
+    textColor: "text-slate-200",
+    descriptionColor: "text-slate-300",
+    accentColor: "text-violet-400",
+    buttonColor: "bg-violet-600 hover:bg-violet-700",
+    rating: 4.9,
+    features: [
+      "Powered by GPT-5",
+      "Advanced dialogue mastery",
+      "Automatic document compilation",
+      "Page-by-page approach",
+      "Enhanced character depth",
+      "Superior narrative coherence",
+      "Latest 2025 version"
+    ],
+    url: "https://chatgpt.com/g/g-PLACEHOLDER-v7-5"
   }
 ];
