@@ -19,7 +19,7 @@ const SecondYouTubeVideo: React.FC = () => {
             FREE
           </div>
           
-          <iframe className="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/qcRNvc6Gmy8?autoplay=1&mute=0&hd=1&vq=hd1080" title="Book Writer GPT Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe className="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/nBd9Uk62UiI?autoplay=1&mute=0&hd=1&vq=hd1080" title="Book Writer GPT Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           
           
         </div>
