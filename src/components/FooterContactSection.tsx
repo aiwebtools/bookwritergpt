@@ -35,7 +35,7 @@ const FooterContactSection: React.FC = () => {
       
       <div className="mt-8 flex justify-center">
         <a
-          href="https://www.aiwebtools.ai"
+          href="https://aiwebtools.lovable.app/?via=aiwebtools"
           target="_blank"
           rel="noopener noreferrer"
           className="group"

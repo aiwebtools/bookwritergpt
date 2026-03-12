@@ -25,7 +25,7 @@ const Footer = () => {
         
         <div className="mt-8 pt-8 border-t border-[#333a4d] flex flex-col md:flex-row justify-between items-center">
           <a 
-            href="https://www.aiwebtools.ai" 
+            href="https://aiwebtools.lovable.app/?via=aiwebtools" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-sm text-gray-400 mb-4 md:mb-0 hover:text-primary transition-colors flex items-center"
