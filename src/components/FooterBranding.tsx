@@ -12,7 +12,7 @@ const FooterBranding: React.FC = () => {
           <span className="text-2xl font-bold text-white">Book Writer GPT</span>
         </div>
         <a
-          href="https://www.aiwebtools.ai"
+          href="https://aiwebtools.lovable.app/?via=aiwebtools"
           target="_blank"
           rel="noopener noreferrer"
           className="text-xs text-gray-400 hover:text-primary transition-colors mb-4 ml-11 flex items-center"

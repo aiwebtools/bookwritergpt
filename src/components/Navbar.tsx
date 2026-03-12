@@ -24,29 +24,29 @@ const Navbar = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 py-3 sm:py-4 transition-all duration-300",
         isScrolled
           ? "bg-background shadow-lg shadow-black/20" 
           : "bg-background/40 backdrop-blur-md"
       )}
       role="banner"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-8">
         <div className="flex items-center justify-between">
-          <div className="flex flex-col">
+          <div className="flex flex-col min-w-0 flex-shrink">
             <a
               href="#"
-              className="flex items-center space-x-2 text-xl font-medium group"
+              className="flex items-center space-x-2 text-base sm:text-xl font-medium group"
               aria-label="AI Web Tools - Free AI Tools for Book Writing"
             >
-              <BookOpen className="w-6 h-6 text-primary group-hover:text-primary/80 transition-colors" />
-              <span className="animate-fade-in bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent font-bold tracking-tight">Book Writer GPT - Free AI Web Tools</span>
+              <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-primary group-hover:text-primary/80 transition-colors flex-shrink-0" />
+              <span className="animate-fade-in bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent font-bold tracking-tight truncate">Book Writer GPT - Free AI Web Tools</span>
             </a>
             <a
-              href="https://www.aiwebtools.ai"
+              href="https://aiwebtools.lovable.app/?via=aiwebtools"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-muted-foreground hover:text-primary transition-colors ml-8 font-medium"
+              className="text-xs text-muted-foreground hover:text-primary transition-colors ml-7 sm:ml-8 font-medium truncate"
               aria-label="Visit AI Web Tools main website"
             >
               Presented By AiWebTools.Ai - Free AI Tools
@@ -54,11 +54,11 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8 flex-shrink-0" role="navigation" aria-label="Main navigation">
             <Button 
               variant="destructive"
               size="lg"
-              className="glow-on-hover font-semibold tracking-wide text-base"
+              className="glow-on-hover font-semibold tracking-wide text-sm xl:text-base whitespace-nowrap"
               onClick={() => {
                 const versionsSection = document.getElementById('versions');
                 if (versionsSection) {
@@ -70,17 +70,25 @@ const Navbar = () => {
               SELECT YOUR FREE AI BOOK WRITER VERSION
             </Button>
             <Button 
-              className="btn-primary glow-on-hover font-semibold tracking-wide"
+              className="btn-primary glow-on-hover font-semibold tracking-wide whitespace-nowrap"
               onClick={() => window.open("https://kdp.amazon.com/", "_blank")}
               aria-label="Publish your AI-written book on Amazon KDP"
             >
               PUBLISH YOUR AI BOOK ON AMAZON
             </Button>
+            <Button 
+              variant="outline"
+              className="glow-on-hover font-semibold tracking-wide whitespace-nowrap border-primary/30 text-primary hover:bg-primary/10"
+              onClick={() => window.open("https://aiwebtools.lovable.app/?via=aiwebtools", "_blank")}
+              aria-label="Discover more free AI tools"
+            >
+              MORE AI TOOLS
+            </Button>
           </nav>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden p-2 text-foreground rounded-full hover:bg-background/20 transition-colors"
+            className="lg:hidden p-2 text-foreground rounded-full hover:bg-background/20 transition-colors flex-shrink-0"
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
             aria-expanded={isMobileMenuOpen}
@@ -97,7 +105,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-x-0 top-[72px] bg-background/95 backdrop-blur-md shadow-lg md:hidden transition-all duration-300 ease-in-out border-t border-border",
+          "fixed inset-x-0 top-[60px] sm:top-[72px] bg-background/95 backdrop-blur-md shadow-lg lg:hidden transition-all duration-200 ease-in-out border-t border-border max-h-[calc(100vh-60px)] overflow-y-auto",
           isMobileMenuOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-4 pointer-events-none"
@@ -105,10 +113,10 @@ const Navbar = () => {
         role="navigation"
         aria-label="Mobile navigation"
       >
-        <div className="container mx-auto px-4 py-6 flex flex-col space-y-4">
+        <div className="container mx-auto px-4 py-4 sm:py-6 flex flex-col space-y-3">
           <Button 
             variant="destructive"
-            className="w-full glow-on-hover font-semibold tracking-wide"
+            className="w-full glow-on-hover font-semibold tracking-wide text-sm sm:text-base py-3"
             onClick={() => {
               const versionsSection = document.getElementById('versions');
               if (versionsSection) {
@@ -121,7 +129,7 @@ const Navbar = () => {
             SELECT YOUR FREE AI BOOK WRITER VERSION
           </Button>
           <Button 
-            className="btn-primary w-full mt-4 glow-on-hover font-semibold tracking-wide"
+            className="btn-primary w-full glow-on-hover font-semibold tracking-wide text-sm sm:text-base py-3"
             onClick={() => {
               window.open("https://kdp.amazon.com/", "_blank");
               setIsMobileMenuOpen(false);
@@ -129,6 +137,17 @@ const Navbar = () => {
             aria-label="Publish your AI book on Amazon"
           >
             PUBLISH YOUR AI BOOK ON AMAZON
+          </Button>
+          <Button 
+            variant="outline"
+            className="w-full glow-on-hover font-semibold tracking-wide text-sm sm:text-base py-3 border-primary/30 text-primary hover:bg-primary/10"
+            onClick={() => {
+              window.open("https://aiwebtools.lovable.app/?via=aiwebtools", "_blank");
+              setIsMobileMenuOpen(false);
+            }}
+            aria-label="Discover more free AI tools"
+          >
+            MORE AI TOOLS
           </Button>
         </div>
       </div>
